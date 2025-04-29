@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QualiExporters - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="212.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000000;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .logo {
+            position: fixed; /* Changed from absolute to fixed */
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            z-index: 100;
+        }
+
+        .coming-soon {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .message {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            letter-spacing: -0.2px;
+        }
+
+        .contact {
+            font-size: 1rem;
+            opacity: 0.6;
+            letter-spacing: -0.1px;
+        }
+
+        .contact a {
+            color: #333333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .coming-soon {
+                font-size: 2rem;
+            }
+
+            .message {
+                font-size: 1rem;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="212.png" alt="QualiExporters Logo" class="logo">
+    <div class="container">
+        <h1 class="coming-soon">Coming Soon</h1>
+        <p class="message">We're preparing to launch our new platform for international trade and logistics. Stay tuned for a world-class exporting experience.</p>
+        <p class="contact">
+            Get in touch: 
+            <a href="mailto:aqxcompany@gmail.com">aqxcompany@gmail.com</a> | 
+            <a href="https://wa.me/7045632656?text=Hi,%20QualiExporters" target="_blank">WhatsApp: +91 7045632656</a>
+        </p>
+    </div>
+</body>
+</html>
