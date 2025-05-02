@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Export Documentation Services</title>
+    <title>Exporter Registration Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             width: 100%;
             padding: 0 24px;
@@ -50,34 +50,34 @@
         }
         
         .logo {
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             margin: 0 auto;
         }
         
         main {
             flex: 1;
-            padding: 60px 0;
+            padding: 40px 0 60px;
         }
         
         .form-section {
-            max-width: 680px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
         .form-header {
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             text-align: center;
         }
         
         .form-header h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         
         .form-header p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--gray-9);
             max-width: 500px;
             margin: 0 auto;
@@ -86,11 +86,20 @@
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            gap: 20px;
+        }
+        
+        .section-title {
+            grid-column: span 2;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 20px 0 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--gray-2);
         }
         
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
         
         .form-group.full-width {
@@ -99,17 +108,23 @@
         
         label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+        }
+        
+        label.optional::after {
+            content: " (optional)";
+            font-weight: 400;
+            opacity: 0.7;
         }
         
         input, select, textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 10px 12px;
             border: 1px solid var(--gray-3);
-            border-radius: 4px;
-            font-size: 0.9rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
             transition: all 0.2s;
         }
         
@@ -120,7 +135,7 @@
         }
         
         textarea {
-            min-height: 120px;
+            min-height: 80px;
             resize: vertical;
         }
         
@@ -128,13 +143,14 @@
             background: var(--black);
             color: var(--white);
             border: none;
-            padding: 16px;
+            padding: 14px;
             font-size: 0.9rem;
             font-weight: 500;
-            border-radius: 4px;
+            border-radius: 3px;
             cursor: pointer;
             width: 100%;
             transition: all 0.2s;
+            margin-top: 20px;
         }
         
         .submit-btn:hover {
@@ -142,13 +158,10 @@
         }
         
         footer {
-            padding: 32px 0;
+            padding: 24px 0;
             text-align: center;
             border-top: 1px solid var(--gray-2);
-        }
-        
-        footer p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--gray-9);
         }
         
@@ -157,12 +170,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .form-group.full-width {
+            .section-title, .form-group.full-width {
                 grid-column: span 1;
             }
             
             .form-header h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -178,83 +191,135 @@
         <div class="container">
             <section class="form-section">
                 <div class="form-header">
-                    <h1>Export Documentation Services</h1>
-                    <p>Complete the form below to begin your export journey. We'll handle all registration and documentation requirements.</p>
+                    <h1>Exporter Registration</h1>
+                    <p>Complete this form to register as an official exporter. We'll handle all documentation requirements.</p>
                 </div>
                 
-                <form id="exportForm">
+                <form id="exporterForm">
                     <div class="form-grid">
+                        <h3 class="section-title">Business Information</h3>
+                        
                         <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required>
+                            <label for="businessName">Registered Business Name</label>
+                            <input type="text" id="businessName" name="businessName" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="businessName">Business Name (if applicable)</label>
-                            <input type="text" id="businessName" name="businessName">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" name="city" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="country">Target Export Country</label>
-                            <select id="country" name="country" required>
-                                <option value="">Select country</option>
-                                <option value="US">United States</option>
-                                <option value="UK">United Kingdom</option>
-                                <option value="UAE">United Arab Emirates</option>
-                                <option value="DE">Germany</option>
+                            <label for="businessType">Business Type</label>
+                            <select id="businessType" name="businessType" required>
+                                <option value="">Select</option>
+                                <option value="Proprietorship">Proprietorship</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="LLP">LLP</option>
+                                <option value="Private Limited">Private Limited</option>
+                                <option value="Public Limited">Public Limited</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
                         
-                        <div class="form-group full-width">
-                            <label for="products">Products/Services for Export</label>
-                            <textarea id="products" name="products" required></textarea>
+                        <div class="form-group">
+                            <label for="panNumber">PAN Number</label>
+                            <input type="text" id="panNumber" name="panNumber" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="experience">Export Experience</label>
-                            <select id="experience" name="experience" required>
+                            <label for="gstNumber">GSTIN (if available)</label>
+                            <input type="text" id="gstNumber" name="gstNumber">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="businessAddress">Registered Business Address</label>
+                            <textarea id="businessAddress" name="businessAddress" required></textarea>
+                        </div>
+                        
+                        <h3 class="section-title">Export Details</h3>
+                        
+                        <div class="form-group">
+                            <label for="exportCategory">Primary Export Category</label>
+                            <select id="exportCategory" name="exportCategory" required>
                                 <option value="">Select</option>
-                                <option value="None">No experience</option>
-                                <option value="Beginner">Beginner (1-2 shipments)</option>
-                                <option value="Intermediate">Intermediate (3-10 shipments)</option>
-                                <option value="Experienced">Experienced (10+ shipments)</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Textiles">Textiles</option>
+                                <option value="Handicrafts">Handicrafts</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Chemicals">Chemicals</option>
+                                <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                <option value="Services">Services</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="timeline">Expected Timeline</label>
-                            <select id="timeline" name="timeline" required>
+                            <label for="primaryProduct">Primary Product/Service</label>
+                            <input type="text" id="primaryProduct" name="primaryProduct" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="productDescription">Detailed Product Description</label>
+                            <textarea id="productDescription" name="productDescription" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="targetMarkets">Target Export Markets</label>
+                            <input type="text" id="targetMarkets" name="targetMarkets" placeholder="Countries or regions" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exportExperience">Export Experience</label>
+                            <select id="exportExperience" name="exportExperience" required>
                                 <option value="">Select</option>
-                                <option value="ASAP">ASAP</option>
-                                <option value="1-3 months">1-3 months</option>
-                                <option value="3-6 months">3-6 months</option>
-                                <option value="6+ months">6+ months</option>
+                                <option value="None">No prior experience</option>
+                                <option value="Domestic">Only domestic sales</option>
+                                <option value="Limited">Limited export experience</option>
+                                <option value="Experienced">Regular exporter</option>
                             </select>
                         </div>
                         
-                        <div class="form-group full-width">
-                            <label for="additional">Additional Requirements</label>
-                            <textarea id="additional" name="additional"></textarea>
+                        <h3 class="section-title">Banking Details</h3>
+                        
+                        <div class="form-group">
+                            <label for="bankName">Bank Name</label>
+                            <input type="text" id="bankName" name="bankName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="accountNumber">Account Number</label>
+                            <input type="text" id="accountNumber" name="accountNumber" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ifscCode">IFSC Code</label>
+                            <input type="text" id="ifscCode" name="ifscCode" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="accountType">Account Type</label>
+                            <select id="accountType" name="accountType" required>
+                                <option value="">Select</option>
+                                <option value="Current">Current Account</option>
+                                <option value="Savings">Savings Account</option>
+                            </select>
+                        </div>
+                        
+                        <h3 class="section-title">Personal Information (Optional)</h3>
+                        
+                        <div class="form-group">
+                            <label for="contactPerson" class="optional">Contact Person</label>
+                            <input type="text" id="contactPerson" name="contactPerson">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail" class="optional">Email Address</label>
+                            <input type="email" id="contactEmail" name="contactEmail">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactPhone" class="optional">Phone Number</label>
+                            <input type="tel" id="contactPhone" name="contactPhone">
                         </div>
                         
                         <div class="form-group full-width">
-                            <button type="submit" class="submit-btn">Submit Application</button>
+                            <button type="submit" class="submit-btn">Submit Registration</button>
                         </div>
                     </div>
                 </form>
@@ -264,29 +329,28 @@
     
     <footer>
         <div class="container">
-            <p>Confidential export documentation services. All rights reserved.</p>
+            <p>Exporter registration documentation services. All information kept confidential.</p>
         </div>
     </footer>
 
     <script>
-        document.getElementById('exportForm').addEventListener('submit', function(e) {
+        document.getElementById('exporterForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Form validation
-            const form = e.target;
-            const isValid = form.checkValidity();
-            
-            if (isValid) {
-                // Here you would integrate with Google Sheets/Zapier
-                alert('Thank you for your submission. We will contact you shortly.');
-                form.reset();
+            if (this.checkValidity()) {
+                // Form submission logic would go here
+                const btn = this.querySelector('.submit-btn');
+                btn.textContent = 'Processing...';
                 
-                // Temporary animation feedback
-                const btn = form.querySelector('.submit-btn');
-                btn.textContent = 'Submitted ✓';
+                // Simulate submission
                 setTimeout(() => {
-                    btn.textContent = 'Submit Application';
-                }, 2000);
+                    btn.textContent = 'Registration Submitted ✓';
+                    alert('Thank you for your exporter registration. We will process your documents shortly.');
+                    this.reset();
+                    setTimeout(() => {
+                        btn.textContent = 'Submit Registration';
+                    }, 3000);
+                }, 1500);
             }
         });
     </script>
