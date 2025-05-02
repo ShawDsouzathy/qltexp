@@ -165,6 +165,10 @@
             color: var(--gray-9);
         }
         
+        .contact-info {
+            margin-top: 8px;
+        }
+        
         @media (max-width: 768px) {
             .form-grid {
                 grid-template-columns: 1fr;
@@ -192,134 +196,61 @@
             <section class="form-section">
                 <div class="form-header">
                     <h1>Exporter Registration</h1>
-                    <p>Complete this form to register as an official exporter. We'll handle all documentation requirements.</p>
+                    <p>Complete this form to begin your exporter documentation process.</p>
                 </div>
                 
                 <form id="exporterForm">
                     <div class="form-grid">
-                        <h3 class="section-title">Business Information</h3>
+                        <h3 class="section-title">Basic Information</h3>
                         
                         <div class="form-group">
-                            <label for="businessName">Registered Business Name</label>
+                            <label for="businessName">Business/Individual Name</label>
                             <input type="text" id="businessName" name="businessName" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="businessType">Business Type</label>
-                            <select id="businessType" name="businessType" required>
-                                <option value="">Select</option>
-                                <option value="Proprietorship">Proprietorship</option>
-                                <option value="Partnership">Partnership</option>
-                                <option value="LLP">LLP</option>
-                                <option value="Private Limited">Private Limited</option>
-                                <option value="Public Limited">Public Limited</option>
-                                <option value="Other">Other</option>
-                            </select>
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="panNumber">PAN Number</label>
-                            <input type="text" id="panNumber" name="panNumber" required>
+                            <label for="contactPhone">WhatsApp Number</label>
+                            <input type="tel" id="contactPhone" name="contactPhone" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="gstNumber">GSTIN (if available)</label>
-                            <input type="text" id="gstNumber" name="gstNumber">
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="businessAddress">Registered Business Address</label>
-                            <textarea id="businessAddress" name="businessAddress" required></textarea>
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
                         </div>
                         
                         <h3 class="section-title">Export Details</h3>
                         
-                        <div class="form-group">
-                            <label for="exportCategory">Primary Export Category</label>
-                            <select id="exportCategory" name="exportCategory" required>
-                                <option value="">Select</option>
-                                <option value="Agriculture">Agriculture</option>
-                                <option value="Textiles">Textiles</option>
-                                <option value="Handicrafts">Handicrafts</option>
-                                <option value="Electronics">Electronics</option>
-                                <option value="Chemicals">Chemicals</option>
-                                <option value="Pharmaceuticals">Pharmaceuticals</option>
-                                <option value="Services">Services</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="primaryProduct">Primary Product/Service</label>
-                            <input type="text" id="primaryProduct" name="primaryProduct" required>
-                        </div>
-                        
                         <div class="form-group full-width">
-                            <label for="productDescription">Detailed Product Description</label>
+                            <label for="productDescription">Products/Services for Export</label>
                             <textarea id="productDescription" name="productDescription" required></textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label for="targetMarkets">Target Export Markets</label>
-                            <input type="text" id="targetMarkets" name="targetMarkets" placeholder="Countries or regions" required>
+                            <label for="targetMarkets">Target Countries</label>
+                            <input type="text" id="targetMarkets" name="targetMarkets" placeholder="e.g., USA, Germany, UAE">
                         </div>
                         
                         <div class="form-group">
-                            <label for="exportExperience">Export Experience</label>
-                            <select id="exportExperience" name="exportExperience" required>
-                                <option value="">Select</option>
-                                <option value="None">No prior experience</option>
-                                <option value="Domestic">Only domestic sales</option>
-                                <option value="Limited">Limited export experience</option>
+                            <label for="exportExperience">Export Experience Level</label>
+                            <select id="exportExperience" name="exportExperience">
+                                <option value="None">First time exporter</option>
+                                <option value="Beginner">Some experience</option>
                                 <option value="Experienced">Regular exporter</option>
                             </select>
                         </div>
                         
-                        <h3 class="section-title">Banking Details</h3>
-                        
-                        <div class="form-group">
-                            <label for="bankName">Bank Name</label>
-                            <input type="text" id="bankName" name="bankName" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="accountNumber">Account Number</label>
-                            <input type="text" id="accountNumber" name="accountNumber" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="ifscCode">IFSC Code</label>
-                            <input type="text" id="ifscCode" name="ifscCode" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="accountType">Account Type</label>
-                            <select id="accountType" name="accountType" required>
-                                <option value="">Select</option>
-                                <option value="Current">Current Account</option>
-                                <option value="Savings">Savings Account</option>
-                            </select>
-                        </div>
-                        
-                        <h3 class="section-title">Personal Information (Optional)</h3>
-                        
-                        <div class="form-group">
-                            <label for="contactPerson" class="optional">Contact Person</label>
-                            <input type="text" id="contactPerson" name="contactPerson">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactEmail" class="optional">Email Address</label>
-                            <input type="email" id="contactEmail" name="contactEmail">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactPhone" class="optional">Phone Number</label>
-                            <input type="tel" id="contactPhone" name="contactPhone">
+                        <div class="form-group full-width">
+                            <label for="additionalInfo" class="optional">Additional Requirements</label>
+                            <textarea id="additionalInfo" name="additionalInfo"></textarea>
                         </div>
                         
                         <div class="form-group full-width">
-                            <button type="submit" class="submit-btn">Submit Registration</button>
+                            <button type="submit" class="submit-btn">Begin Registration Process</button>
                         </div>
                     </div>
                 </form>
@@ -329,7 +260,10 @@
     
     <footer>
         <div class="container">
-            <p>Exporter registration documentation services. All information kept confidential.</p>
+            <p>Exporter documentation and registration services</p>
+            <div class="contact-info">
+                <p>Email: aqxcompany@gmail.com | WhatsApp: 7045632656</p>
+            </div>
         </div>
     </footer>
 
@@ -338,17 +272,16 @@
             e.preventDefault();
             
             if (this.checkValidity()) {
-                // Form submission logic would go here
                 const btn = this.querySelector('.submit-btn');
                 btn.textContent = 'Processing...';
                 
                 // Simulate submission
                 setTimeout(() => {
-                    btn.textContent = 'Registration Submitted ✓';
-                    alert('Thank you for your exporter registration. We will process your documents shortly.');
+                    btn.textContent = 'Request Received ✓';
+                    alert('Thank you for your interest. We will contact you shortly to complete the registration.');
                     this.reset();
                     setTimeout(() => {
-                        btn.textContent = 'Submit Registration';
+                        btn.textContent = 'Begin Registration Process';
                     }, 3000);
                 }, 1500);
             }
