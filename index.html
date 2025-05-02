@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Export Services</title>
+    <title>Export Documentation Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="212.png" type="image/png">
     <style>
         :root {
             --black: #000;
             --white: #fff;
-            --gray-light: #f5f5f5;
-            --gray-mid: #e0e0e0;
-            --gray-dark: #333;
+            --gray-1: #f8f8f8;
+            --gray-2: #e8e8e8;
+            --gray-3: #d8d8d8;
+            --gray-9: #222;
         }
         
         * {
@@ -22,205 +23,271 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', -apple-system, sans-serif;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.015em;
             -webkit-font-smoothing: antialiased;
         }
         
         body {
             background: var(--white);
             color: var(--black);
-            line-height: 1.4;
-            max-width: 1000px;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            width: 100%;
+            padding: 0 24px;
         }
         
         header {
+            padding: 40px 0;
             text-align: center;
-            padding: 40px 0 30px;
+            border-bottom: 1px solid var(--gray-2);
         }
         
         .logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 15px;
+            width: 72px;
+            height: 72px;
+            margin: 0 auto;
         }
         
-        h1 {
-            font-size: 1rem;
+        main {
+            flex: 1;
+            padding: 60px 0;
+        }
+        
+        .form-section {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        
+        .form-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .form-header h1 {
+            font-size: 1.8rem;
             font-weight: 500;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
         
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        
-        p {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--gray-dark);
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        
-        .subtitle {
-            font-size: 0.85rem;
-            color: var(--gray-dark);
-            opacity: 0.8;
-        }
-        
-        section {
-            padding: 40px 0;
-            border-top: 1px solid var(--gray-mid);
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .card {
-            padding: 20px;
-            border: 1px solid var(--gray-mid);
-            border-radius: 2px;
-        }
-        
-        form {
+        .form-header p {
+            font-size: 0.95rem;
+            color: var(--gray-9);
             max-width: 500px;
-            margin: 30px auto 0;
+            margin: 0 auto;
         }
         
-        .input-group {
-            margin-bottom: 15px;
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
         }
         
         label {
             display: block;
-            margin-bottom: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--gray-mid);
-            border-radius: 2px;
             font-size: 0.85rem;
-            background: var(--white);
+            font-weight: 500;
+            margin-bottom: 8px;
         }
         
-        button {
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-3);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 0 1px var(--black);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
             background: var(--black);
             color: var(--white);
             border: none;
-            padding: 12px 0;
-            font-size: 0.85rem;
+            padding: 16px;
+            font-size: 0.9rem;
             font-weight: 500;
-            border-radius: 2px;
+            border-radius: 4px;
             cursor: pointer;
             width: 100%;
-            margin-top: 5px;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
         }
         
-        button:hover {
+        .submit-btn:hover {
             opacity: 0.9;
         }
         
         footer {
+            padding: 32px 0;
             text-align: center;
-            padding: 40px 0;
-            font-size: 0.75rem;
-            color: var(--gray-dark);
-            opacity: 0.7;
-            border-top: 1px solid var(--gray-mid);
+            border-top: 1px solid var(--gray-2);
         }
         
-        @media (min-width: 768px) {
-            .logo {
-                width: 70px;
-                height: 70px;
+        footer p {
+            font-size: 0.8rem;
+            color: var(--gray-9);
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
             }
             
-            h1 {
-                font-size: 1.1rem;
+            .form-group.full-width {
+                grid-column: span 1;
             }
             
-            h2 {
-                font-size: 1.7rem;
-            }
-            
-            section {
-                padding: 50px 0;
+            .form-header h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="212.png" alt="Logo" class="logo">
-        <h1>Start your export journey with ease</h1>
-        <p class="subtitle">Documentation & registration handled for you</p>
+        <div class="container">
+            <img src="212.png" alt="Logo" class="logo">
+        </div>
     </header>
     
-    <section>
-        <h2>Services</h2>
-        <p>Complete export registration and documentation support for Indian businesses.</p>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>IEC Registration</h3>
-            </div>
-            <div class="card">
-                <h3>GST Registration</h3>
-            </div>
-            <div class="card">
-                <h3>AD Code</h3>
-            </div>
-            <div class="card">
-                <h3>Bank Setup</h3>
-            </div>
+    <main>
+        <div class="container">
+            <section class="form-section">
+                <div class="form-header">
+                    <h1>Export Documentation Services</h1>
+                    <p>Complete the form below to begin your export journey. We'll handle all registration and documentation requirements.</p>
+                </div>
+                
+                <form id="exportForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessName">Business Name (if applicable)</label>
+                            <input type="text" id="businessName" name="businessName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Target Export Country</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select country</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="UAE">United Arab Emirates</option>
+                                <option value="DE">Germany</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="products">Products/Services for Export</label>
+                            <textarea id="products" name="products" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Export Experience</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select</option>
+                                <option value="None">No experience</option>
+                                <option value="Beginner">Beginner (1-2 shipments)</option>
+                                <option value="Intermediate">Intermediate (3-10 shipments)</option>
+                                <option value="Experienced">Experienced (10+ shipments)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Expected Timeline</label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="">Select</option>
+                                <option value="ASAP">ASAP</option>
+                                <option value="1-3 months">1-3 months</option>
+                                <option value="3-6 months">3-6 months</option>
+                                <option value="6+ months">6+ months</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="additional">Additional Requirements</label>
+                            <textarea id="additional" name="additional"></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <button type="submit" class="submit-btn">Submit Application</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
-    </section>
-    
-    <section>
-        <h2>Get Started</h2>
-        <form id="contactForm">
-            <div class="input-group">
-                <label>Full Name</label>
-                <input type="text" required>
-            </div>
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" required>
-            </div>
-            <div class="input-group">
-                <label>Phone</label>
-                <input type="tel" required>
-            </div>
-            <div class="input-group">
-                <label>Product to Export</label>
-                <input type="text" required>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    </main>
     
     <footer>
-        <p>All services provided with confidentiality and compliance</p>
+        <div class="container">
+            <p>Confidential export documentation services. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('exportForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Form submission logic would go here
-            this.reset();
+            
+            // Form validation
+            const form = e.target;
+            const isValid = form.checkValidity();
+            
+            if (isValid) {
+                // Here you would integrate with Google Sheets/Zapier
+                alert('Thank you for your submission. We will contact you shortly.');
+                form.reset();
+                
+                // Temporary animation feedback
+                const btn = form.querySelector('.submit-btn');
+                btn.textContent = 'Submitted ✓';
+                setTimeout(() => {
+                    btn.textContent = 'Submit Application';
+                }, 2000);
+            }
         });
     </script>
 </body>
