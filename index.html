@@ -281,49 +281,38 @@
 
 
   <script>
-document.getElementById('exporterForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.submit-btn');
-    
-    try {
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-        
-        // TEST DATA - simpler version
-        const testData = {
-            "Business/Individual Name": "TEST COMPANY",
-            "Email Address": "test@test.com",
-            "WhatsApp Number": "1234567890",
-            "City": "Test City",
-            "Products/Services": "Test Product",
-            "Target Countries": "Test Country",
-            "Export Experience": "None",
-            "Additional Requirements": "None"
-        };
+ const form = document.getElementById("exporterForm");
+    const statusMsg = document.getElementById("statusMsg");
 
-        // USE YOUR NEW DEPLOYMENT URL HERE
-        const response = await fetch('https://script.google.com/macros/s/AKfycbyLpaiwRnFuRm2lyBz9g1WA85Gtyfy4_qdcCA4Xme4qu6-US1OuBUi8FNxUUZi6JoI/exec', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(testData)
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const formData = {};
+      [...form.elements].forEach(el => {
+        if (el.name) formData[el.name] = el.value;
+      });
+
+      statusMsg.textContent = "Submitting...";
+
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxBfkOTjmdPbyPHpC4EZs1v3FCLNx2-Z-rHEhI_h8FzohREkYinl0P0L8BFOOnWw3gx/exec", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
         });
-        
+
         const result = await response.json();
-        console.log("Success!", result);
-        alert("Worked! Check your Google Sheet");
-        btn.textContent = 'Success! ✓';
-        
-    } catch (error) {
-        console.error("Error:", error);
-        alert("Failed: " + error.message);
-        btn.textContent = 'Failed - Try Again';
-    } finally {
-        setTimeout(() => {
-            btn.textContent = 'Submit Form';
-            btn.disabled = false;
-        }, 3000);
-    }
-});
+        if (result.status === "success") {
+          statusMsg.textContent = "Submitted successfully!";
+          form.reset();
+        } else {
+          statusMsg.textContent = "Something went wrong.";
+        }
+      } catch (err) {
+        statusMsg.textContent = "Error: " + err.message;
+        console.error(err);
+      }
+    });
 </script>
 </body>
 </html>
