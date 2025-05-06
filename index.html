@@ -1013,10 +1013,7 @@
                 }
             }
             
-             document.addEventListener('DOMContentLoaded', () => {
-            // [All previous JavaScript code remains the same until the download-report event listener]
-            
-            // Download report as Word document
+   
             document.getElementById('download-report').addEventListener('click', () => {
                 const originalText = document.getElementById('download-report').textContent;
                 document.getElementById('download-report').textContent = 'Generating Report...';
