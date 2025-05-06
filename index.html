@@ -6,6 +6,7 @@
     <title>QltExportise Trade Cost & Profit Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="212.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -66,7 +67,7 @@
         
         h1 {
             font-size: 1.8rem;
-             letter-spacing: -0.015em;
+            letter-spacing: -0.015em;
             margin-top:2.7rem;
             margin-bottom: 1.5rem;
             text-align: center;
@@ -93,7 +94,6 @@
         
         .section-title {
             font-size: 1.1rem;
-            
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border-color);
@@ -280,6 +280,27 @@
         @media (max-width: 768px) {
             .form-group {
                 min-width: 100%;
+            }
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #results-section, #results-section * {
+                visibility: visible;
+            }
+            #results-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                border: none;
+                box-shadow: none;
+            }
+            .btn-download {
+                display: none;
             }
         }
     </style>
@@ -662,10 +683,9 @@
                     <span id="result-profit-margin">0.00%</span>
                 </div>
                 
-                <!-- Download Buttons -->
+                <!-- Download Button -->
                 <div style="margin-top: 2rem; text-align: center;">
-                    <button class="btn btn-download" id="download-pdf">Download as PDF</button>
-                    <button class="btn btn-download" id="download-word">Download as Word</button>
+                    <button class="btn btn-download" id="download-report">Download Report</button>
                 </div>
             </div>
         </div>
@@ -980,13 +1000,28 @@
                 }
             }
             
-            // Download buttons (placeholder functionality)
-            document.getElementById('download-pdf').addEventListener('click', () => {
-                alert('PDF download functionality would be implemented here');
-            });
-            
-            document.getElementById('download-word').addEventListener('click', () => {
-                alert('Word download functionality would be implemented here');
+            // Download report as PDF
+            document.getElementById('download-report').addEventListener('click', () => {
+                const element = document.getElementById('results-section');
+                const opt = {
+                    margin: 10,
+                    filename: 'Trade_Calculator_Report.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, logging: true, useCORS: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+                
+                // Show loading indicator
+                const originalText = document.getElementById('download-report').textContent;
+                document.getElementById('download-report').textContent = 'Generating Report...';
+                document.getElementById('download-report').disabled = true;
+                
+                // Generate PDF
+                html2pdf().from(element).set(opt).save().then(() => {
+                    // Restore button state
+                    document.getElementById('download-report').textContent = originalText;
+                    document.getElementById('download-report').disabled = false;
+                });
             });
         });
     </script>
