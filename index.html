@@ -275,8 +275,20 @@
         
         .contact-info {
             margin-top: 8px;
-        }
         
+        }
+         .pdf-container {
+            padding: 20px;
+            background: white;
+            color: black;
+        }
+        .pdf-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .pdf-container .result-row {
+            padding: 8px 0;
+        }
         @media (max-width: 768px) {
             .form-group {
                 min-width: 100%;
@@ -1002,26 +1014,70 @@
             
             // Download report as PDF
             document.getElementById('download-report').addEventListener('click', () => {
-                const element = document.getElementById('results-section');
-                const opt = {
-                    margin: 10,
-                    filename: 'Trade_Calculator_Report.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, logging: true, useCORS: true },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                };
-                
-                // Show loading indicator
                 const originalText = document.getElementById('download-report').textContent;
                 document.getElementById('download-report').textContent = 'Generating Report...';
                 document.getElementById('download-report').disabled = true;
                 
-                // Generate PDF
-                html2pdf().from(element).set(opt).save().then(() => {
-                    // Restore button state
-                    document.getElementById('download-report').textContent = originalText;
-                    document.getElementById('download-report').disabled = false;
-                });
+                // Create a clone of the results section for PDF generation
+                const element = document.getElementById('results-section');
+                const clone = element.cloneNode(true);
+                
+                // Remove the download button from the clone
+                const downloadBtn = clone.querySelector('#download-report');
+                if (downloadBtn) downloadBtn.remove();
+                
+                // Create a container for the PDF content
+                const pdfContainer = document.createElement('div');
+                pdfContainer.className = 'pdf-container';
+                pdfContainer.appendChild(clone);
+                
+                // Add logo and title
+                const logo = document.createElement('img');
+                logo.src = '212.png';
+                logo.style.width = '50px';
+                logo.style.marginBottom = '20px';
+                pdfContainer.insertBefore(logo, pdfContainer.firstChild);
+                
+                const title = document.createElement('h1');
+                title.textContent = 'Trade Cost & Profit Breakdown';
+                title.style.textAlign = 'center';
+                title.style.marginBottom = '30px';
+                pdfContainer.insertBefore(title, pdfContainer.firstChild);
+                
+                // Set PDF options
+                const opt = {
+                    margin: 15,
+                    filename: 'Trade_Cost_Profit_Breakdown.pdf',
+                    image: { type: 'jpeg', quality: 1 },
+                    html2canvas: { 
+                        scale: 2,
+                        logging: true,
+                        useCORS: true,
+                        letterRendering: true,
+                        allowTaint: true
+                    },
+                    jsPDF: { 
+                        unit: 'mm', 
+                        format: 'a4', 
+                        orientation: 'portrait' 
+                    }
+                };
+                
+                // Generate and save PDF
+                html2pdf()
+                    .set(opt)
+                    .from(pdfContainer)
+                    .save()
+                    .then(() => {
+                        document.getElementById('download-report').textContent = originalText;
+                        document.getElementById('download-report').disabled = false;
+                    })
+                    .catch(err => {
+                        console.error('Error generating PDF:', err);
+                        document.getElementById('download-report').textContent = originalText;
+                        document.getElementById('download-report').disabled = false;
+                        alert('Error generating PDF. Please try again.');
+                    });
             });
         });
     </script>
