@@ -3,33 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exporter Registration Services</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>International Trade Cost Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="212.png" type="image/png">
     <style>
         :root {
-            --black: #000;
-            --white: #fff;
-            --gray-1: #f8f8f8;
-            --gray-2: #e8e8e8;
-            --gray-3: #d8d8d8;
-            --gray-9: #222;
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --border-color: #e0e0e0;
+            --accent-color: #333333;
+            --highlight-color: #f5f5f5;
+            --profit-color: #00c851;
+            --loss-color: #ff4444;
+            --section-color: #f8f8f8;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
             letter-spacing: -0.015em;
-            -webkit-font-smoothing: antialiased;
         }
         
         body {
-            background: var(--white);
-            color: var(--black);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.5;
             min-height: 100vh;
             display: flex;
@@ -37,16 +36,16 @@
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
             padding: 0 24px;
         }
         
         header {
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
-            border-bottom: 1px solid var(--gray-2);
+            border-bottom: 1px solid var(--border-color);
         }
         
         .logo {
@@ -57,112 +56,206 @@
         
         main {
             flex: 1;
-            padding: 40px 0 60px;
+            padding: 30px 0;
         }
         
-        .form-section {
-            max-width: 800px;
-            margin: 0 auto;
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
         }
         
-        .form-header {
-            margin-bottom: 32px;
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
         
-        .form-header h1 {
-            font-size: 1.6rem;
-            font-weight: 500;
-            margin-bottom: 8px;
+        .calculator-container {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
         }
         
-        .form-header p {
-            font-size: 0.9rem;
-            color: var(--gray-9);
-            max-width: 500px;
-            margin: 0 auto;
+        .form-section {
+            margin-bottom: 0;
+            padding: 20px;
+            background-color: var(--section-color);
+            border-bottom: 1px solid var(--border-color);
         }
         
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        .form-section:last-child {
+            border-bottom: none;
         }
         
         .section-title {
-            grid-column: span 2;
             font-size: 1.1rem;
-            font-weight: 500;
-            margin: 20px 0 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--gray-2);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
         }
         
         .form-group {
-            margin-bottom: 16px;
-        }
-        
-        .form-group.full-width {
-            grid-column: span 2;
+            flex: 1;
+            min-width: 200px;
         }
         
         label {
             display: block;
-            font-size: 0.8rem;
             font-weight: 500;
-            margin-bottom: 6px;
-        }
-        
-        label.optional::after {
-            content: " (optional)";
-            font-weight: 400;
-            opacity: 0.7;
+            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
         }
         
         input, select, textarea {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid var(--gray-3);
+            padding: 0.6rem;
+            border: 1px solid var(--border-color);
             border-radius: 3px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-size: 0.85rem;
-            transition: all 0.2s;
         }
         
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--black);
-            box-shadow: 0 0 0 1px var(--black);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 1px var(--accent-color);
         }
         
-        textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: var(--black);
-            color: var(--white);
+        .btn {
+            padding: 0.7rem 1.3rem;
+            background-color: var(--accent-color);
+            color: white;
             border: none;
-            padding: 14px;
-            font-size: 0.9rem;
-            font-weight: 500;
             border-radius: 3px;
             cursor: pointer;
-            width: 100%;
-            transition: all 0.2s;
-            margin-top: 20px;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            transition: background-color 0.2s;
+            font-size: 0.85rem;
         }
         
-        .submit-btn:hover {
-            opacity: 0.9;
+        .btn:hover {
+            background-color: var(--text-color);
+        }
+        
+        .btn-secondary {
+            background-color: #666;
+        }
+        
+        .btn-download {
+            background-color: #333;
+            margin-top: 1rem;
+        }
+        
+        .result-box {
+            background-color: var(--highlight-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        
+        .result-row.total {
+            font-weight: 600;
+            border-bottom: 2px solid var(--text-color);
+        }
+        
+        .result-row.profit {
+            font-weight: 600;
+            color: var(--profit-color);
+            border-bottom: 2px solid var(--profit-color);
+        }
+        
+        .result-row.loss {
+            font-weight: 600;
+            color: var(--loss-color);
+            border-bottom: 2px solid var(--loss-color);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .unit-toggle {
+            display: flex;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            width: fit-content;
+        }
+        
+        .unit-toggle button {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+        
+        .unit-toggle button.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        
+        .items-table th, .items-table td {
+            border: 1px solid var(--border-color);
+            padding: 0.6rem;
+            text-align: left;
+        }
+        
+        .items-table th {
+            font-weight: 600;
+            background-color: var(--highlight-color);
+        }
+        
+        .add-item-btn {
+            margin-top: 0.5rem;
+        }
+        
+        .remove-item {
+            color: var(--loss-color);
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .form-actions {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
         }
         
         footer {
             padding: 24px 0;
             text-align: center;
-            border-top: 1px solid var(--gray-2);
+            border-top: 1px solid var(--border-color);
             font-size: 0.75rem;
-            color: var(--gray-9);
+            color: var(--text-color);
         }
         
         .footer-logo {
@@ -181,16 +274,8 @@
         }
         
         @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title, .form-group.full-width {
-                grid-column: span 1;
-            }
-            
-            .form-header h1 {
-                font-size: 1.4rem;
+            .form-group {
+                min-width: 100%;
             }
         }
     </style>
@@ -202,70 +287,383 @@
         </div>
     </header>
     
-    <main>
-        <div class="container">
-            <section class="form-section">
-                <div class="form-header">
-                    <h1>Exporter Registration Form</h1>
-                    <p>Complete this form to begin your exporter registration process.</p>
+    <main class="container">
+        <h1>International Trade Cost Calculator</h1>
+        
+        <div class="calculator-container">
+            <!-- Shipment Details -->
+            <div class="form-section">
+                <h3 class="section-title">Shipment Details</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>User Type</label>
+                        <select id="user-type" required>
+                            <option value="exporter">Exporter</option>
+                            <option value="importer">Importer</option>
+                            <option value="cha">CHA (Customs Agent)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Origin Country</label>
+                        <select id="origin-country" required>
+                            <option value="">Select Country</option>
+                            <option value="US">United States</option>
+                            <option value="CN">China</option>
+                            <option value="IN">India</option>
+                            <option value="DE">Germany</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Destination Country</label>
+                        <select id="destination-country" required>
+                            <option value="">Select Country</option>
+                            <option value="US">United States</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="AE">UAE</option>
+                            <option value="JP">Japan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Incoterm</label>
+                        <select id="incoterm" required>
+                            <option value="">Select Incoterm</option>
+                            <option value="EXW">EXW (Ex Works)</option>
+                            <option value="FOB">FOB (Free On Board)</option>
+                            <option value="CIF">CIF (Cost, Insurance & Freight)</option>
+                            <option value="DDP">DDP (Delivered Duty Paid)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Shipping Method</label>
+                        <select id="shipping-method" required>
+                            <option value="">Select Method</option>
+                            <option value="air">Air Freight</option>
+                            <option value="sea">Sea Freight</option>
+                            <option value="land">Land Transport</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Currency</label>
+                        <select id="currency" required>
+                            <option value="USD">USD ($)</option>
+                            <option value="EUR">EUR (€)</option>
+                            <option value="GBP">GBP (£)</option>
+                            <option value="INR">INR (₹)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CBM Calculator -->
+            <div class="form-section">
+                <h3 class="section-title">Package Dimensions & Weight</h3>
+                <div class="unit-toggle">
+                    <button class="active" id="metric-btn">Metric (cm/kg)</button>
+                    <button id="imperial-btn">Imperial (in/lb)</button>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label id="length-label">Length (cm)</label>
+                        <input type="number" id="length" placeholder="0.00" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label id="width-label">Width (cm)</label>
+                        <input type="number" id="width" placeholder="0.00" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label id="height-label">Height (cm)</label>
+                        <input type="number" id="height" placeholder="0.00" step="0.01">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label id="quantity-label">Quantity</label>
+                        <input type="number" id="quantity" placeholder="1" min="1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label id="weight-label">Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="0.00" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Handling Notes</label>
+                        <input type="text" id="handling-notes" placeholder="Fragile, hazardous, etc.">
+                    </div>
+                </div>
+                <button class="btn" id="add-item">Add Item</button>
+                
+                <div style="margin-top: 1.5rem;">
+                    <table class="items-table" id="items-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Dimensions</th>
+                                <th>Qty</th>
+                                <th>Weight</th>
+                                <th>CBM</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="items-list">
+                            <!-- Items will be added here -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3"><strong>Total</strong></td>
+                                <td id="total-weight">0.00</td>
+                                <td id="total-cbm">0.000</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
                 
-                <form id="exporterForm">
-                    <div class="form-grid">
-                        <h3 class="section-title">Basic Information</h3>
-                        
-                        <div class="form-group">
-                            <label for="businessName">Business/Individual Name</label>
-                            <input type="text" id="businessName" name="businessName" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactEmail">Email Address</label>
-                            <input type="email" id="contactEmail" name="contactEmail" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactPhone">WhatsApp Number</label>
-                            <input type="tel" id="contactPhone" name="contactPhone" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" name="city" required>
-                        </div>
-                        
-                        <h3 class="section-title">Export Details</h3>
-                        
-                        <div class="form-group full-width">
-                            <label for="productDescription">Products/Services for Export</label>
-                            <textarea id="productDescription" name="productDescription" required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="targetMarkets">Target Countries</label>
-                            <input type="text" id="targetMarkets" name="targetMarkets" placeholder="e.g., USA, Germany, UAE">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exportExperience">Export Experience Level</label>
-                            <select id="exportExperience" name="exportExperience">
-                                <option value="None">First time exporter</option>
-                                <option value="Beginner">Some experience</option>
-                                <option value="Experienced">Regular exporter</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="additionalInfo" class="optional">Additional Requirements</label>
-                            <textarea id="additionalInfo" name="additionalInfo"></textarea>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <button type="submit" class="submit-btn">Begin Registration Process</button>
-                        </div>
+                <div class="form-row" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <label>Chargeable Weight Calculation</label>
+                        <select id="weight-calculation">
+                            <option value="actual">Actual Weight</option>
+                            <option value="volumetric">Volumetric Weight</option>
+                            <option value="greater">Greater of Actual/Volumetric</option>
+                        </select>
                     </div>
-                </form>
-            </section>
+                    <div class="form-group">
+                        <label>Volumetric Divisor</label>
+                        <input type="number" id="volumetric-divisor" value="5000">
+                    </div>
+                    <div class="form-group">
+                        <label>Chargeable Weight</label>
+                        <input type="text" id="chargeable-weight-display" readonly value="0.00 kg">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Costs -->
+            <div class="form-section">
+                <h3 class="section-title">Product Costs</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Product Cost (Your Cost)</label>
+                        <input type="number" id="product-cost" min="0" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Selling Price (Revenue)</label>
+                        <input type="number" id="selling-price" min="0" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Cost</label>
+                        <input type="number" id="packaging-cost" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Additional Product Charges</label>
+                        <input type="number" id="additional-product-charges" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Product Charge Description</label>
+                        <input type="text" id="product-charge-desc" placeholder="Description for additional charges">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shipping & Logistics -->
+            <div class="form-section">
+                <h3 class="section-title">Shipping & Logistics Costs</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Freight Cost</label>
+                        <input type="number" id="freight-cost" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Insurance Cost</label>
+                        <input type="number" id="insurance-cost" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Handling Fees</label>
+                        <input type="number" id="handling-fees" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Additional Shipping Charges</label>
+                        <input type="number" id="additional-shipping-charges" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Shipping Charge Description</label>
+                        <input type="text" id="shipping-charge-desc" placeholder="Description for additional charges">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customs & Duties -->
+            <div class="form-section">
+                <h3 class="section-title">Customs & Duties</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Import Duty Rate (%)</label>
+                        <input type="number" id="import-duty-rate" min="0" step="0.1" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>VAT/GST Rate (%)</label>
+                        <input type="number" id="vat-rate" min="0" step="0.1" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Customs Fees</label>
+                        <input type="number" id="customs-fees" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Additional Customs Charges</label>
+                        <input type="number" id="additional-customs-charges" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Customs Charge Description</label>
+                        <input type="text" id="customs-charge-desc" placeholder="Description for additional charges">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Costs -->
+            <div class="form-section">
+                <h3 class="section-title">Additional Costs</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Bank Charges</label>
+                        <input type="number" id="bank-charges" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Inspection Fees</label>
+                        <input type="number" id="inspection-fees" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Other Costs</label>
+                        <input type="number" id="other-costs" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Additional Miscellaneous Charges</label>
+                        <input type="number" id="additional-misc-charges" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Miscellaneous Charge Description</label>
+                        <input type="text" id="misc-charge-desc" placeholder="Description for additional charges">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="form-actions">
+                <button class="btn" id="calculate-btn">Calculate Costs & Profit</button>
+                <button class="btn btn-secondary" id="reset-btn">Reset Form</button>
+            </div>
+            
+            <!-- Results Section -->
+            <div class="result-box hidden" id="results-section">
+                <h2>International Trade Cost Breakdown</h2>
+                
+                <div class="result-row">
+                    <span>Product Cost:</span>
+                    <span id="result-product-cost">$0.00</span>
+                </div>
+                
+                <div class="result-row">
+                    <span>Packaging Cost:</span>
+                    <span id="result-packaging-cost">$0.00</span>
+                </div>
+                
+                <div class="result-row">
+                    <span>Additional Product Charges:</span>
+                    <span id="result-additional-product">$0.00</span>
+                </div>
+                
+                <h3>Shipping & Logistics</h3>
+                <div class="result-row">
+                    <span>Freight Cost:</span>
+                    <span id="result-freight-cost">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Insurance Cost:</span>
+                    <span id="result-insurance-cost">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Handling Fees:</span>
+                    <span id="result-handling-fees">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Additional Shipping Charges:</span>
+                    <span id="result-additional-shipping">$0.00</span>
+                </div>
+                
+                <h3>Customs & Duties</h3>
+                <div class="result-row">
+                    <span>Import Duty:</span>
+                    <span id="result-import-duty">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>VAT/GST:</span>
+                    <span id="result-vat">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Customs Fees:</span>
+                    <span id="result-customs-fees">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Additional Customs Charges:</span>
+                    <span id="result-additional-customs">$0.00</span>
+                </div>
+                
+                <h3>Additional Costs</h3>
+                <div class="result-row">
+                    <span>Bank Charges:</span>
+                    <span id="result-bank-charges">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Inspection Fees:</span>
+                    <span id="result-inspection-fees">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Other Costs:</span>
+                    <span id="result-other-costs">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Additional Miscellaneous Charges:</span>
+                    <span id="result-additional-misc">$0.00</span>
+                </div>
+                
+                <div class="result-row total">
+                    <span>Total Cost:</span>
+                    <span id="result-total-cost">$0.00</span>
+                </div>
+                
+                <!-- Profit Calculation -->
+                <h3 style="margin-top: 1.5rem;">Profit Calculation</h3>
+                <div class="result-row">
+                    <span>Selling Price (Revenue):</span>
+                    <span id="result-selling-price">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Total Expenses:</span>
+                    <span id="result-total-expenses">$0.00</span>
+                </div>
+                <div class="result-row" id="profit-loss-row">
+                    <span>Net Profit/Loss:</span>
+                    <span id="result-net-profit">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Profit Margin (%):</span>
+                    <span id="result-profit-margin">0.00%</span>
+                </div>
+                
+                <!-- Download Buttons -->
+                <div style="margin-top: 2rem; text-align: center;">
+                    <button class="btn btn-download" id="download-pdf">Download as PDF</button>
+                    <button class="btn btn-download" id="download-word">Download as Word</button>
+                </div>
+            </div>
         </div>
     </main>
     
@@ -278,41 +676,315 @@
             </div>
         </div>
     </footer>
-
-
-  <script>
- const form = document.getElementById("exporterForm");
-    const statusMsg = document.getElementById("statusMsg");
-
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
-
-      const formData = {};
-      [...form.elements].forEach(el => {
-        if (el.name) formData[el.name] = el.value;
-      });
-
-      statusMsg.textContent = "Submitting...";
-
-      try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbxBfkOTjmdPbyPHpC4EZs1v3FCLNx2-Z-rHEhI_h8FzohREkYinl0P0L8BFOOnWw3gx/exec", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Unit system toggle
+            let isMetric = true;
+            document.getElementById('metric-btn').addEventListener('click', () => {
+                isMetric = true;
+                document.getElementById('metric-btn').classList.add('active');
+                document.getElementById('imperial-btn').classList.remove('active');
+                updateUnitLabels();
+            });
+            
+            document.getElementById('imperial-btn').addEventListener('click', () => {
+                isMetric = false;
+                document.getElementById('imperial-btn').classList.add('active');
+                document.getElementById('metric-btn').classList.remove('active');
+                updateUnitLabels();
+            });
+            
+            function updateUnitLabels() {
+                if (isMetric) {
+                    document.getElementById('length-label').textContent = 'Length (cm)';
+                    document.getElementById('width-label').textContent = 'Width (cm)';
+                    document.getElementById('height-label').textContent = 'Height (cm)';
+                    document.getElementById('weight-label').textContent = 'Weight (kg)';
+                } else {
+                    document.getElementById('length-label').textContent = 'Length (in)';
+                    document.getElementById('width-label').textContent = 'Width (in)';
+                    document.getElementById('height-label').textContent = 'Height (in)';
+                    document.getElementById('weight-label').textContent = 'Weight (lb)';
+                }
+                updateTotals();
+            }
+            
+            // Add item to list
+            document.getElementById('add-item').addEventListener('click', () => {
+                const length = parseFloat(document.getElementById('length').value) || 0;
+                const width = parseFloat(document.getElementById('width').value) || 0;
+                const height = parseFloat(document.getElementById('height').value) || 0;
+                const quantity = parseInt(document.getElementById('quantity').value) || 1;
+                const weight = parseFloat(document.getElementById('weight').value) || 0;
+                
+                if (length <= 0 || width <= 0 || height <= 0) {
+                    alert('Please enter valid dimensions');
+                    return;
+                }
+                
+                // Calculate CBM based on unit system
+                let cbm, displayDimensions;
+                if (isMetric) {
+                    cbm = (length * width * height) / 1000000; // cm³ to m³
+                    displayDimensions = `${length} × ${width} × ${height} cm`;
+                } else {
+                    cbm = (length * width * height) / 61023.7; // in³ to m³
+                    displayDimensions = `${length} × ${width} × ${height} in`;
+                }
+                
+                const totalCBM = cbm * quantity;
+                const totalWeight = weight * quantity;
+                
+                const itemId = Date.now();
+                const itemRow = document.createElement('tr');
+                itemRow.dataset.id = itemId;
+                itemRow.innerHTML = `
+                    <td>${document.getElementById('items-list').children.length + 1}</td>
+                    <td>${displayDimensions}</td>
+                    <td>${quantity}</td>
+                    <td>${weight.toFixed(2)}</td>
+                    <td>${totalCBM.toFixed(3)}</td>
+                    <td class="remove-item" data-id="${itemId}">×</td>
+                `;
+                
+                document.getElementById('items-list').appendChild(itemRow);
+                
+                // Clear input fields
+                document.getElementById('length').value = '';
+                document.getElementById('width').value = '';
+                document.getElementById('height').value = '';
+                document.getElementById('quantity').value = '1';
+                document.getElementById('weight').value = '';
+                
+                // Focus on length field
+                document.getElementById('length').focus();
+                
+                // Update totals
+                updateTotals();
+            });
+            
+            // Remove item from list
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('remove-item')) {
+                    e.target.closest('tr').remove();
+                    updateItemNumbers();
+                    updateTotals();
+                }
+            });
+            
+            // Update item numbers in the table
+            function updateItemNumbers() {
+                const rows = document.getElementById('items-list').children;
+                for (let i = 0; i < rows.length; i++) {
+                    rows[i].cells[0].textContent = i + 1;
+                }
+            }
+            
+            // Calculate totals
+            function updateTotals() {
+                let totalCBM = 0;
+                let totalWeight = 0;
+                
+                const rows = document.getElementById('items-list').children;
+                for (let i = 0; i < rows.length; i++) {
+                    const cbm = parseFloat(rows[i].cells[4].textContent) || 0;
+                    const weight = parseFloat(rows[i].cells[3].textContent) || 0;
+                    const quantity = parseInt(rows[i].cells[2].textContent) || 1;
+                    
+                    totalCBM += cbm;
+                    totalWeight += weight * quantity;
+                }
+                
+                document.getElementById('total-cbm').textContent = totalCBM.toFixed(3);
+                document.getElementById('total-weight').textContent = totalWeight.toFixed(2);
+                
+                calculateChargeableWeight(totalCBM, totalWeight);
+            }
+            
+            // Calculate chargeable weight
+            function calculateChargeableWeight(totalCBM, totalWeight) {
+                const calculationMethod = document.getElementById('weight-calculation').value;
+                const divisor = parseFloat(document.getElementById('volumetric-divisor').value) || 5000;
+                
+                let chargeableWeight = 0;
+                const volumetricWeight = totalCBM * (isMetric ? divisor : (divisor / 5000 * 166));
+                
+                switch (calculationMethod) {
+                    case 'actual':
+                        chargeableWeight = totalWeight;
+                        break;
+                    case 'volumetric':
+                        chargeableWeight = volumetricWeight;
+                        break;
+                    case 'greater':
+                        chargeableWeight = Math.max(totalWeight, volumetricWeight);
+                        break;
+                }
+                
+                const unit = isMetric ? 'kg' : 'lb';
+                document.getElementById('chargeable-weight-display').value = `${chargeableWeight.toFixed(2)} ${unit}`;
+            }
+            
+            // Event listeners for chargeable weight calculation
+            document.getElementById('weight-calculation').addEventListener('change', () => {
+                const totalCBM = parseFloat(document.getElementById('total-cbm').textContent) || 0;
+                const totalWeight = parseFloat(document.getElementById('total-weight').textContent) || 0;
+                calculateChargeableWeight(totalCBM, totalWeight);
+            });
+            
+            document.getElementById('volumetric-divisor').addEventListener('input', () => {
+                const totalCBM = parseFloat(document.getElementById('total-cbm').textContent) || 0;
+                const totalWeight = parseFloat(document.getElementById('total-weight').textContent) || 0;
+                calculateChargeableWeight(totalCBM, totalWeight);
+            });
+            
+            // Initialize with metric units
+            updateUnitLabels();
+            
+            // Main calculation function
+            const calculateBtn = document.getElementById('calculate-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const resultsSection = document.getElementById('results-section');
+            
+            calculateBtn.addEventListener('click', () => {
+                // Validate required fields
+                if (!document.getElementById('origin-country').value || 
+                    !document.getElementById('destination-country').value || 
+                    !document.getElementById('product-cost').value || 
+                    !document.getElementById('selling-price').value) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Get currency symbol
+                const currency = document.getElementById('currency').value;
+                const currencySymbol = getCurrencySymbol(currency);
+                
+                // Product costs
+                const productCost = parseFloat(document.getElementById('product-cost').value) || 0;
+                const sellingPrice = parseFloat(document.getElementById('selling-price').value) || 0;
+                const packagingCost = parseFloat(document.getElementById('packaging-cost').value) || 0;
+                const additionalProductCharges = parseFloat(document.getElementById('additional-product-charges').value) || 0;
+                
+                // Shipping costs
+                const freightCost = parseFloat(document.getElementById('freight-cost').value) || 0;
+                const insuranceCost = parseFloat(document.getElementById('insurance-cost').value) || 0;
+                const handlingFees = parseFloat(document.getElementById('handling-fees').value) || 0;
+                const additionalShippingCharges = parseFloat(document.getElementById('additional-shipping-charges').value) || 0;
+                
+                // Customs & duties
+                const importDutyRate = parseFloat(document.getElementById('import-duty-rate').value) || 0;
+                const vatRate = parseFloat(document.getElementById('vat-rate').value) || 0;
+                const customsFees = parseFloat(document.getElementById('customs-fees').value) || 0;
+                const additionalCustomsCharges = parseFloat(document.getElementById('additional-customs-charges').value) || 0;
+                
+                // Additional costs
+                const bankCharges = parseFloat(document.getElementById('bank-charges').value) || 0;
+                const inspectionFees = parseFloat(document.getElementById('inspection-fees').value) || 0;
+                const otherCosts = parseFloat(document.getElementById('other-costs').value) || 0;
+                const additionalMiscCharges = parseFloat(document.getElementById('additional-misc-charges').value) || 0;
+                
+                // Calculate duties & taxes
+                const importDuty = productCost * (importDutyRate / 100);
+                const vat = (productCost + importDuty) * (vatRate / 100);
+                
+                // Calculate total export cost
+                const totalExportCost = 
+                    productCost + 
+                    packagingCost + 
+                    additionalProductCharges +
+                    freightCost + 
+                    insuranceCost + 
+                    handlingFees + 
+                    additionalShippingCharges +
+                    importDuty + 
+                    vat + 
+                    customsFees + 
+                    additionalCustomsCharges +
+                    bankCharges + 
+                    inspectionFees + 
+                    otherCosts +
+                    additionalMiscCharges;
+                
+                // Calculate profit
+                const netProfit = sellingPrice - totalExportCost;
+                const profitMargin = (netProfit / sellingPrice) * 100;
+                
+                // Display results
+                document.getElementById('result-product-cost').textContent = `${currencySymbol}${productCost.toFixed(2)}`;
+                document.getElementById('result-packaging-cost').textContent = `${currencySymbol}${packagingCost.toFixed(2)}`;
+                document.getElementById('result-additional-product').textContent = `${currencySymbol}${additionalProductCharges.toFixed(2)}`;
+                
+                document.getElementById('result-freight-cost').textContent = `${currencySymbol}${freightCost.toFixed(2)}`;
+                document.getElementById('result-insurance-cost').textContent = `${currencySymbol}${insuranceCost.toFixed(2)}`;
+                document.getElementById('result-handling-fees').textContent = `${currencySymbol}${handlingFees.toFixed(2)}`;
+                document.getElementById('result-additional-shipping').textContent = `${currencySymbol}${additionalShippingCharges.toFixed(2)}`;
+                
+                document.getElementById('result-import-duty').textContent = `${currencySymbol}${importDuty.toFixed(2)}`;
+                document.getElementById('result-vat').textContent = `${currencySymbol}${vat.toFixed(2)}`;
+                document.getElementById('result-customs-fees').textContent = `${currencySymbol}${customsFees.toFixed(2)}`;
+                document.getElementById('result-additional-customs').textContent = `${currencySymbol}${additionalCustomsCharges.toFixed(2)}`;
+                
+                document.getElementById('result-bank-charges').textContent = `${currencySymbol}${bankCharges.toFixed(2)}`;
+                document.getElementById('result-inspection-fees').textContent = `${currencySymbol}${inspectionFees.toFixed(2)}`;
+                document.getElementById('result-other-costs').textContent = `${currencySymbol}${otherCosts.toFixed(2)}`;
+                document.getElementById('result-additional-misc').textContent = `${currencySymbol}${additionalMiscCharges  } ;           
+                document.getElementById('result-total-cost').textContent = `${currencySymbol}${totalExportCost.toFixed(2)}`;
+                
+                // Profit calculation
+                document.getElementById('result-selling-price').textContent = `${currencySymbol}${sellingPrice.toFixed(2)}`;
+                document.getElementById('result-total-expenses').textContent = `${currencySymbol}${totalExportCost.toFixed(2)}`;
+                document.getElementById('result-net-profit').textContent = `${currencySymbol}${netProfit.toFixed(2)}`;
+                document.getElementById('result-profit-margin').textContent = `${profitMargin.toFixed(2)}%`;
+                
+                // Style profit/loss row based on value
+                const profitLossRow = document.getElementById('profit-loss-row');
+                if (netProfit >= 0) {
+                    profitLossRow.className = 'result-row profit';
+                } else {
+                    profitLossRow.className = 'result-row loss';
+                }
+                
+                // Show results section
+                resultsSection.classList.remove('hidden');
+                
+                // Scroll to results
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Reset form
+            resetBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to reset the form? All data will be lost.')) {
+                    document.querySelector('form').reset();
+                    document.getElementById('items-list').innerHTML = '';
+                    document.getElementById('total-weight').textContent = '0.00';
+                    document.getElementById('total-cbm').textContent = '0.000';
+                    document.getElementById('chargeable-weight-display').value = '0.00 kg';
+                    resultsSection.classList.add('hidden');
+                }
+            });
+            
+            // Get currency symbol
+            function getCurrencySymbol(currency) {
+                switch (currency) {
+                    case 'USD': return '$';
+                    case 'EUR': return '€';
+                    case 'GBP': return '£';
+                    case 'INR': return '₹';
+                    default: return '$';
+                }
+            }
+            
+            // Download buttons (placeholder functionality)
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                alert('PDF download functionality would be implemented here');
+            });
+            
+            document.getElementById('download-word').addEventListener('click', () => {
+                alert('Word download functionality would be implemented here');
+            });
         });
-
-        const result = await response.json();
-        if (result.status === "success") {
-          statusMsg.textContent = "Submitted successfully!";
-          form.reset();
-        } else {
-          statusMsg.textContent = "Something went wrong.";
-        }
-      } catch (err) {
-        statusMsg.textContent = "Error: " + err.message;
-        console.error(err);
-      }
-    });
-</script>
+    </script>
 </body>
 </html>
