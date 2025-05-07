@@ -450,6 +450,21 @@
             </div>
         </div>
         
+<script>
+function toggleFAQ(element) {
+    const answer = element.nextElementSibling;
+    const icon = element.querySelector('span');
+    
+    if (answer.style.display === 'none' || !answer.style.display) {
+        answer.style.display = 'block';
+        icon.textContent = '-';
+    } else {
+        answer.style.display = 'none';
+        icon.textContent = '+';
+    }
+}
+</script>
+        
         <div class="calculator-container">
             <!-- Shipment Details -->
             <div class="form-section">
