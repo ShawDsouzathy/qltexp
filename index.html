@@ -326,7 +326,7 @@
     </header>
 
     <main class="container">
-        <h1>Trade Calculator</h1>
+        <h1>Trade Profit & Cost Calculator</h1>
 <div style="
     max-width: 800px;
     margin: 0 auto;
@@ -356,11 +356,146 @@
             Your browser does not support the video tag.
         </video>
     </div>
+<div style="
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    line-height: 1.6;
+">
+    <h2 style="
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #000000;
+        text-align: center;
+    ">International Trade Cost & Profit Calculator</h2>
+    
+    <div style="
+        display: flex;
+        gap: 30px;
+        margin-bottom: 40px;
+        align-items: center;
+    ">
+        <div style="flex: 1;">
+            <p style="margin-bottom: 20px; font-size: 16px;">
+                This comprehensive calculator helps businesses accurately estimate all costs involved in international trade transactions. 
+                Calculate shipping costs, duties, taxes, and profit margins for your cross-border shipments with precision.
+            </p>
+            
+            <div style="
+                background: #f8f8f8;
+                padding: 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            ">
+                <h3 style="
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 15px;
+                ">Key Features:</h3>
+                <ul style="padding-left: 20px;">
+                    <li style="margin-bottom: 8px;">Multi-currency support</li>
+                    <li style="margin-bottom: 8px;">CBM and weight calculations</li>
+                    <li style="margin-bottom: 8px;">Custom duty and tax estimation</li>
+                    <li style="margin-bottom: 8px;">Profit margin analysis</li>
+                    <li>Detailed cost breakdown</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="flex: 1; min-height: 200px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <!-- Placeholder for calculator illustration -->
+            <p style="color: #999;">Calculator Visual</p>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px;">
+        <h3 style="
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        ">Frequently Asked Questions</h3>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="
+                padding: 15px;
+                background: #f8f8f8;
+                border-radius: 6px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                <span style="font-weight: 500;">Who can use this calculator?</span>
+                <span style="font-size: 20px;">+</span>
+            </div>
+            <div style="
+                padding: 15px;
+                display: none;
+                background: #fafafa;
+                border-radius: 0 0 6px 6px;
+                margin-top: 1px;
+            ">
+                Exporters, importers, customs agents, trade finance professionals, and small business owners involved in international trade.
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="
+                padding: 15px;
+                background: #f8f8f8;
+                border-radius: 6px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                <span style="font-weight: 500;">What costs are included?</span>
+                <span style="font-size: 20px;">+</span>
+            </div>
+            <div style="
+                padding: 15px;
+                display: none;
+                background: #fafafa;
+                border-radius: 0 0 6px 6px;
+                margin-top: 1px;
+            ">
+                Product costs, shipping fees, insurance, customs duties, VAT/GST, handling charges, bank fees, and other miscellaneous expenses.
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="
+                padding: 15px;
+                background: #f8f8f8;
+                border-radius: 6px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                <span style="font-weight: 500;">How accurate are the calculations?</span>
+                <span style="font-size: 20px;">+</span>
+            </div>
+            <div style="
+                padding: 15px;
+                display: none;
+                background: #fafafa;
+                border-radius: 0 0 6px 6px;
+                margin-top: 1px;
+            ">
+                The calculator provides estimates based on your inputs. For exact figures, consult with your logistics provider or customs broker.
+            </div>
+        </div>
+    </div>
 </div>
-
-         <p style="margin-bottom: 35px; marging-right:23px; marging-left:23px;font-size: 0.95rem; line-height: 1.3; text-align: center;">
-    This comprehensive trade calculator helps exporters, importers, and customs agents accurately estimate all costs involved in international trade transactions like shipping costs, duties, taxes, and profit margins.
-</p>
 
         <div class="calculator-container">
             <!-- Shipment Details -->
