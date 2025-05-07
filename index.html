@@ -325,17 +325,18 @@
         </div>
     </header>
 
-   <div style="
+<div style="
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
     font-family: 'Inter', sans-serif;
     color: #333;
+    text-align: center;
 ">
     <!-- Header Section -->
     <h1 style="
         font-size: 2rem;
-        font-weight: 600;
+        font-weight: 400;
         margin-bottom: 1rem;
         color: #000;
         line-height: 1.3;
@@ -343,11 +344,12 @@
 
     <!-- Video Section -->
     <div style="
-        margin: 30px 0;
+        margin: 30px auto;
         border-radius: 12px;
         overflow: hidden;
         aspect-ratio: 16/9;
         background: #000;
+        max-width: 100%;
     ">
         <video 
             autoplay 
@@ -370,18 +372,19 @@
     <p style="
         font-size: 1.05rem;
         line-height: 1.6;
-        margin-bottom: 2rem;
+        margin: 0 auto 2rem;
         color: #444;
+        max-width: 600px;
     ">
         Calculate complete international trade costs including shipping, duties, taxes, and profit margins. Designed for exporters, importers, and logistics professionals.
     </p>
 
     <!-- FAQ Dropdown Section -->
-    <div style="margin-top: 2.5rem;">
+    <div style="margin: 2.5rem auto 0; max-width: 600px;">
         <!-- FAQ Item 1 -->
-        <div style="margin-bottom: 15px;">
+        <div style="margin-bottom: 10px;">
             <div style="
-                padding: 15px;
+                padding: 14px 20px;
                 background: #f8f8f8;
                 border-radius: 8px;
                 cursor: pointer;
@@ -390,19 +393,20 @@
                 align-items: center;
             " onclick="toggleFAQ(this)">
                 <h3 style="
-                    font-size: 1.1rem;
-                    font-weight: 600;
+                    font-size: 1.05rem;
+                    font-weight: 400;
                     margin: 0;
                     color: #000;
                 ">What costs does this calculator include?</h3>
-                <span style="font-size: 1.2rem;">+</span>
+                <span style="font-size: 1.1rem;">+</span>
             </div>
             <div style="
-                padding: 15px;
+                padding: 14px 20px;
                 display: none;
                 background: #fafafa;
                 border-radius: 0 0 8px 8px;
                 margin-top: 1px;
+                text-align: left;
             ">
                 <p style="
                     font-size: 0.95rem;
@@ -416,9 +420,9 @@
         </div>
         
         <!-- FAQ Item 2 -->
-        <div style="margin-bottom: 15px;">
+        <div style="margin-bottom: 10px;">
             <div style="
-                padding: 15px;
+                padding: 14px 20px;
                 background: #f8f8f8;
                 border-radius: 8px;
                 cursor: pointer;
@@ -427,19 +431,20 @@
                 align-items: center;
             " onclick="toggleFAQ(this)">
                 <h3 style="
-                    font-size: 1.1rem;
-                    font-weight: 600;
+                    font-size: 1.05rem;
+                    font-weight: 400;
                     margin: 0;
                     color: #000;
                 ">How accurate are the calculations?</h3>
-                <span style="font-size: 1.2rem;">+</span>
+                <span style="font-size: 1.1rem;">+</span>
             </div>
             <div style="
-                padding: 15px;
+                padding: 14px 20px;
                 display: none;
                 background: #fafafa;
                 border-radius: 0 0 8px 8px;
                 margin-top: 1px;
+                text-align: left;
             ">
                 <p style="
                     font-size: 0.95rem;
@@ -453,9 +458,9 @@
         </div>
         
         <!-- FAQ Item 3 -->
-        <div style="margin-bottom: 15px;">
+        <div style="margin-bottom: 10px;">
             <div style="
-                padding: 15px;
+                padding: 14px 20px;
                 background: #f8f8f8;
                 border-radius: 8px;
                 cursor: pointer;
@@ -464,19 +469,20 @@
                 align-items: center;
             " onclick="toggleFAQ(this)">
                 <h3 style="
-                    font-size: 1.1rem;
-                    font-weight: 600;
+                    font-size: 1.05rem;
+                    font-weight: 400;
                     margin: 0;
                     color: #000;
                 ">Can I download the cost & profit breakdown?</h3>
-                <span style="font-size: 1.2rem;">+</span>
+                <span style="font-size: 1.1rem;">+</span>
             </div>
             <div style="
-                padding: 15px;
+                padding: 14px 20px;
                 display: none;
                 background: #fafafa;
                 border-radius: 0 0 8px 8px;
                 margin-top: 1px;
+                text-align: left;
             ">
                 <p style="
                     font-size: 0.95rem;
@@ -505,7 +511,6 @@ function toggleFAQ(element) {
     }
 }
 </script>
-</div>
         <div class="calculator-container">
             <!-- Shipment Details -->
             <div class="form-section">
