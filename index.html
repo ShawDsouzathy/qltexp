@@ -325,10 +325,7 @@
         </div>
     </header>
 
-    <main class="container">
-        <h1>Trade Profit & Cost Calculator</h1>
-
-<div style="
+   <div style="
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
@@ -343,18 +340,14 @@
         color: #000;
         line-height: 1.3;
     ">International Trade Calculator</h1>
+
+    <!-- Video Section -->
     <div style="
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    overflow: hidden;
-">
-    <div style="
-        position: relative;
-        border-radius: 16px;
+        margin: 30px 0;
+        border-radius: 12px;
         overflow: hidden;
-        aspect-ratio: 16/9; /* Modern aspect ratio control */
+        aspect-ratio: 16/9;
+        background: #000;
     ">
         <video 
             autoplay 
@@ -364,7 +357,7 @@
             style="
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: contain;
                 display: block;
             "
         >
@@ -372,6 +365,7 @@
             Your browser does not support the video tag.
         </video>
     </div>
+
     <!-- Description Text -->
     <p style="
         font-size: 1.05rem;
@@ -379,62 +373,138 @@
         margin-bottom: 2rem;
         color: #444;
     ">
-        Calculate complete international trade costs including shipping, duties, taxes, and profit margins which is designed for exporters, importers, and logistics professionals.
+        Calculate complete international trade costs including shipping, duties, taxes, and profit margins. Designed for exporters, importers, and logistics professionals.
     </p>
 
-    <!-- FAQ Items (always visible) -->
+    <!-- FAQ Dropdown Section -->
     <div style="margin-top: 2.5rem;">
-        <div style="margin-bottom: 2rem;">
-            <h3 style="
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-bottom: 0.5rem;
-                color: #000;
-            ">What costs does this calculator include?</h3>
-            <p style="
-                font-size: 0.95rem;
-                line-height: 1.5;
-                color: #666;
-                margin-left: 0.5rem;
+        <!-- FAQ Item 1 -->
+        <div style="margin-bottom: 15px;">
+            <div style="
+                padding: 15px;
+                background: #f8f8f8;
+                border-radius: 8px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            " onclick="toggleFAQ(this)">
+                <h3 style="
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    margin: 0;
+                    color: #000;
+                ">What costs does this calculator include?</h3>
+                <span style="font-size: 1.2rem;">+</span>
+            </div>
+            <div style="
+                padding: 15px;
+                display: none;
+                background: #fafafa;
+                border-radius: 0 0 8px 8px;
+                margin-top: 1px;
             ">
-                Product costs, shipping fees, insurance, customs duties, VAT/GST, handling charges, and other trade-related expenses.
-            </p>
+                <p style="
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                    color: #666;
+                    margin: 0;
+                ">
+                    Product costs, shipping fees, insurance, customs duties, VAT/GST, handling charges, and other trade-related expenses.
+                </p>
+            </div>
         </div>
         
-        <div style="margin-bottom: 2rem;">
-            <h3 style="
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-bottom: 0.5rem;
-                color: #000;
-            ">How accurate are the calculations?</h3>
-            <p style="
-                font-size: 0.95rem;
-                line-height: 1.5;
-                color: #666;
-                margin-left: 0.5rem;
+        <!-- FAQ Item 2 -->
+        <div style="margin-bottom: 15px;">
+            <div style="
+                padding: 15px;
+                background: #f8f8f8;
+                border-radius: 8px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            " onclick="toggleFAQ(this)">
+                <h3 style="
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    margin: 0;
+                    color: #000;
+                ">How accurate are the calculations?</h3>
+                <span style="font-size: 1.2rem;">+</span>
+            </div>
+            <div style="
+                padding: 15px;
+                display: none;
+                background: #fafafa;
+                border-radius: 0 0 8px 8px;
+                margin-top: 1px;
             ">
-                Provides estimates based on your inputs. For exact figures, consult with your logistics provider or customs broker.
-            </p>
+                <p style="
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                    color: #666;
+                    margin: 0;
+                ">
+                    Provides estimates based on your inputs. For exact figures, consult with your logistics provider or customs broker.
+                </p>
+            </div>
         </div>
         
-        <div style="margin-bottom: 2rem;">
-            <h3 style="
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-bottom: 0.5rem;
-                color: #000;
-            ">Can I download the cost & profite breakdown?</h3>
-            <p style="
-                font-size: 0.95rem;
-                line-height: 1.5;
-                color: #666;
-                margin-left: 0.5rem;
+        <!-- FAQ Item 3 -->
+        <div style="margin-bottom: 15px;">
+            <div style="
+                padding: 15px;
+                background: #f8f8f8;
+                border-radius: 8px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            " onclick="toggleFAQ(this)">
+                <h3 style="
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    margin: 0;
+                    color: #000;
+                ">Can I download the cost & profit breakdown?</h3>
+                <span style="font-size: 1.2rem;">+</span>
+            </div>
+            <div style="
+                padding: 15px;
+                display: none;
+                background: #fafafa;
+                border-radius: 0 0 8px 8px;
+                margin-top: 1px;
             ">
-                Yes, you can dowload it in word form.
-            </p>
+                <p style="
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                    color: #666;
+                    margin: 0;
+                ">
+                    Yes, you can download a detailed report in Word format with all calculations.
+                </p>
+            </div>
         </div>
     </div>
+</div>
+
+<script>
+function toggleFAQ(element) {
+    const answer = element.nextElementSibling;
+    const icon = element.querySelector('span');
+    
+    if (answer.style.display === 'none' || !answer.style.display) {
+        answer.style.display = 'block';
+        icon.textContent = '-';
+    } else {
+        answer.style.display = 'none';
+        icon.textContent = '+';
+    }
+}
+</script>
 </div>
         <div class="calculator-container">
             <!-- Shipment Details -->
