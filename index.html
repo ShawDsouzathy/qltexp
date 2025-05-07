@@ -357,146 +357,181 @@
         </video>
     </div>
 <div style="
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 40px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
     font-family: 'Inter', sans-serif;
-    color: #333333;
-    line-height: 1.6;
+    color: #333;
 ">
-    <h2 style="
-        font-size: 28px;
+    <!-- Header Section -->
+    <h1 style="
+        font-size: 2.2rem;
         font-weight: 600;
-        margin-bottom: 20px;
-        color: #000000;
-        text-align: center;
-    ">International Trade Cost & Profit Calculator</h2>
+        margin-bottom: 1.5rem;
+        color: #000;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    ">International Trade Calculator</h1>
+    
+    <!-- Description Text -->
+    <p style="
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+        color: #444;
+    ">
+        A precision tool for exporters, importers, and logistics professionals to calculate complete trade costs including shipping, duties, taxes, and profit margins across global markets.
+    </p>
+    
+    <!-- Divider -->
+    <div style="
+        height: 1px;
+        background: #eee;
+        margin: 2rem 0;
+    "></div>
+    
+    <!-- Key Features -->
+    <h2 style="
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+        color: #000;
+    ">Key Capabilities</h2>
     
     <div style="
-        display: flex;
-        gap: 30px;
-        margin-bottom: 40px;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
     ">
-        <div style="flex: 1;">
-            <p style="margin-bottom: 20px; font-size: 16px;">
-                This comprehensive calculator helps businesses accurately estimate all costs involved in international trade transactions. 
-                Calculate shipping costs, duties, taxes, and profit margins for your cross-border shipments with precision.
-            </p>
-            
-            <div style="
-                background: #f8f8f8;
-                padding: 20px;
-                border-radius: 8px;
-                margin-bottom: 20px;
+        <div>
+            <h3 style="
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 0.8rem;
+                color: #000;
+            ">Cost Breakdown</h3>
+            <p style="
+                font-size: 0.95rem;
+                line-height: 1.5;
+                color: #666;
             ">
-                <h3 style="
-                    font-size: 18px;
-                    font-weight: 600;
-                    margin-bottom: 15px;
-                ">Key Features:</h3>
-                <ul style="padding-left: 20px;">
-                    <li style="margin-bottom: 8px;">Multi-currency support</li>
-                    <li style="margin-bottom: 8px;">CBM and weight calculations</li>
-                    <li style="margin-bottom: 8px;">Custom duty and tax estimation</li>
-                    <li style="margin-bottom: 8px;">Profit margin analysis</li>
-                    <li>Detailed cost breakdown</li>
-                </ul>
-            </div>
+                Detailed analysis of product, shipping, and customs costs with currency conversion.
+            </p>
         </div>
         
-        <div style="flex: 1; min-height: 200px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-            <!-- Placeholder for calculator illustration -->
-            <p style="color: #999;">Calculator Visual</p>
+        <div>
+            <h3 style="
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 0.8rem;
+                color: #000;
+            ">Profit Analysis</h3>
+            <p style="
+                font-size: 0.95rem;
+                line-height: 1.5;
+                color: #666;
+            ">
+                Clear visualization of profit margins after all trade expenses.
+            </p>
+        </div>
+        
+        <div>
+            <h3 style="
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 0.8rem;
+                color: #000;
+            ">Global Compliance</h3>
+            <p style="
+                font-size: 0.95rem;
+                line-height: 1.5;
+                color: #666;
+            ">
+                Duty and tax calculations for 50+ countries with Incoterms® support.
+            </p>
         </div>
     </div>
     
-    <div style="margin-top: 40px;">
-        <h3 style="
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        ">Frequently Asked Questions</h3>
-        
-        <div style="margin-bottom: 15px;">
+    <!-- FAQ Section -->
+    <h2 style="
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: #000;
+    ">Common Questions</h2>
+    
+    <div style="margin-bottom: 2rem;">
+        <div style="
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+        " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
             <div style="
-                padding: 15px;
-                background: #f8f8f8;
-                border-radius: 6px;
-                cursor: pointer;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-            " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
-                <span style="font-weight: 500;">Who can use this calculator?</span>
-                <span style="font-size: 20px;">+</span>
+            ">
+                <span style="font-weight: 500;">What makes this calculator different?</span>
+                <span style="font-size: 1.2rem;">+</span>
             </div>
             <div style="
-                padding: 15px;
+                padding: 1rem 0 0;
                 display: none;
-                background: #fafafa;
-                border-radius: 0 0 6px 6px;
-                margin-top: 1px;
+                color: #666;
+                line-height: 1.6;
             ">
-                Exporters, importers, customs agents, trade finance professionals, and small business owners involved in international trade.
+                Unlike basic calculators, we account for all hidden costs in international trade including bank charges, inspection fees, and Incoterm-specific liabilities.
             </div>
         </div>
         
-        <div style="margin-bottom: 15px;">
+        <div style="
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+        " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
             <div style="
-                padding: 15px;
-                background: #f8f8f8;
-                border-radius: 6px;
-                cursor: pointer;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-            " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
-                <span style="font-weight: 500;">What costs are included?</span>
-                <span style="font-size: 20px;">+</span>
+            ">
+                <span style="font-weight: 500;">How current are your duty rates?</span>
+                <span style="font-size: 1.2rem;">+</span>
             </div>
             <div style="
-                padding: 15px;
+                padding: 1rem 0 0;
                 display: none;
-                background: #fafafa;
-                border-radius: 0 0 6px 6px;
-                margin-top: 1px;
+                color: #666;
+                line-height: 1.6;
             ">
-                Product costs, shipping fees, insurance, customs duties, VAT/GST, handling charges, bank fees, and other miscellaneous expenses.
+                We update our duty database quarterly using official government sources. For sensitive commodities, we recommend verifying with local customs.
             </div>
         </div>
         
-        <div style="margin-bottom: 15px;">
+        <div style="
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+        " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
             <div style="
-                padding: 15px;
-                background: #f8f8f8;
-                border-radius: 6px;
-                cursor: pointer;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-            " onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
-                <span style="font-weight: 500;">How accurate are the calculations?</span>
-                <span style="font-size: 20px;">+</span>
+            ">
+                <span style="font-weight: 500;">Can I save my calculations?</span>
+                <span style="font-size: 1.2rem;">+</span>
             </div>
             <div style="
-                padding: 15px;
+                padding: 1rem 0 0;
                 display: none;
-                background: #fafafa;
-                border-radius: 0 0 6px 6px;
-                margin-top: 1px;
+                color: #666;
+                line-height: 1.6;
             ">
-                The calculator provides estimates based on your inputs. For exact figures, consult with your logistics provider or customs broker.
+                Yes, you can download PDF reports or save projects if you create an account (free tier available).
             </div>
         </div>
     </div>
 </div>
-
         <div class="calculator-container">
             <!-- Shipment Details -->
             <div class="form-section">
