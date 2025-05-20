@@ -13,12 +13,13 @@
         const titles = [
             "QltExportise ",
             "TradeCalc",
+            
         ];
         let titleIndex = 0;
 
         setInterval(() => {
             document.title = titles[titleIndex];
-            titleIndex = (titleIndex + 2) % titles.length;
+            titleIndex = (titleIndex + 1) % titles.length;
         }, 1000);
     </script>
 </head>
