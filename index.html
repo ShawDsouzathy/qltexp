@@ -864,12 +864,7 @@ function toggleFAQ(element) {
                 </div>
                 
                 <!-- Download Button -->
-                <div style="margin-top: 2rem; text-align: center;">
-                    <button class="btn btn-download" id="download-report">Download Report</button>
-                </div>
-            </div>
-        </div>
-    </main>
+      
     
     <footer>
         <div class="main-container">
@@ -1181,130 +1176,7 @@ function toggleFAQ(element) {
             }
             
    
-            document.getElementById('download-report').addEventListener('click', () => {
-                const originalText = document.getElementById('download-report').textContent;
-                document.getElementById('download-report').textContent = 'Generating Report...';
-                document.getElementById('download-report').disabled = true;
-                
-                // Get all the data from the results section
-                const title = "Trade Cost & Profit Breakdown";
-                const date = new Date().toLocaleDateString();
-                const currencySymbol = getCurrencySymbol(document.getElementById('currency').value);
-                
-                // Create sections for the Word document
-                const sections = [];
-                
-                // Add header with logo and title
-                sections.push({
-                    properties: {},
-                    children: [
-                        new docx.Paragraph({
-                            text: title,
-                            heading: docx.HeadingLevel.HEADING_1,
-                            alignment: docx.AlignmentType.CENTER
-                        }),
-                        new docx.Paragraph({
-                            text: `Generated on: ${date}`,
-                            alignment: docx.AlignmentType.CENTER,
-                            spacing: { after: 200 }
-                        })
-                    ]
-                });
-                
-                // Add product costs section
-                sections.push(createSection("Product Costs", [
-                    `Product Cost: ${document.getElementById('result-product-cost').textContent}`,
-                    `Packaging Cost: ${document.getElementById('result-packaging-cost').textContent}`,
-                    `Additional Product Charges: ${document.getElementById('result-additional-product').textContent}`
-                ]));
-                
-                // Add shipping & logistics section
-                sections.push(createSection("Shipping & Logistics", [
-                    `Freight Cost: ${document.getElementById('result-freight-cost').textContent}`,
-                    `Insurance Cost: ${document.getElementById('result-insurance-cost').textContent}`,
-                    `Handling Fees: ${document.getElementById('result-handling-fees').textContent}`,
-                    `Additional Shipping Charges: ${document.getElementById('result-additional-shipping').textContent}`
-                ]));
-                
-                // Add customs & duties section
-                sections.push(createSection("Customs & Duties", [
-                    `Import Duty: ${document.getElementById('result-import-duty').textContent}`,
-                    `VAT/GST: ${document.getElementById('result-vat').textContent}`,
-                    `Customs Fees: ${document.getElementById('result-customs-fees').textContent}`,
-                    `Additional Customs Charges: ${document.getElementById('result-additional-customs').textContent}`
-                ]));
-                
-                // Add additional costs section
-                sections.push(createSection("Additional Costs", [
-                    `Bank Charges: ${document.getElementById('result-bank-charges').textContent}`,
-                    `Inspection Fees: ${document.getElementById('result-inspection-fees').textContent}`,
-                    `Other Costs: ${document.getElementById('result-other-costs').textContent}`,
-                    `Additional Miscellaneous Charges: ${document.getElementById('result-additional-misc').textContent}`
-                ]));
-                
-                // Add totals section
-                sections.push(createSection("Totals", [
-                    `Total Cost: ${document.getElementById('result-total-cost').textContent}`,
-                    `Selling Price (Revenue): ${document.getElementById('result-selling-price').textContent}`,
-                    `Total Expenses: ${document.getElementById('result-total-expenses').textContent}`,
-                    `Net Profit/Loss: ${document.getElementById('result-net-profit').textContent}`,
-                    `Profit Margin: ${document.getElementById('result-profit-margin').textContent}`
-                ], true));
-                
-                // Create the document
-                const doc = new docx.Document({
-                    sections: sections,
-                    styles: {
-                        paragraphStyles: [{
-                            id: "Normal",
-                            name: "Normal",
-                            run: {
-                                size: 24, // 12pt
-                                font: "Inter"
-                            },
-                            paragraph: {
-                                spacing: { line: 276 } // 1.15 line spacing
-                            }
-                        }]
-                    }
-                });
-                
-                // Generate and download the Word document
-                docx.Packer.toBlob(doc).then(blob => {
-                    saveAs(blob, `Trade_Cost_Profit_Breakdown_${date.replace(/\//g, '-')}.docx`);
-                    document.getElementById('download-report').textContent = originalText;
-                    document.getElementById('download-report').disabled = false;
-                }).catch(err => {
-                    console.error('Error generating Word document:', err);
-                    document.getElementById('download-report').textContent = originalText;
-                    document.getElementById('download-report').disabled = false;
-                    alert('Error generating report. Please try again.');
-                });
-            });
-            
-            // Helper function to create document sections
-            function createSection(title, items, isBold = false) {
-                const children = [
-                    new docx.Paragraph({
-                        text: title,
-                        heading: docx.HeadingLevel.HEADING_2,
-                        spacing: { before: 400, after: 200 }
-                    })
-                ];
-                
-                items.forEach(item => {
-                    children.push(new docx.Paragraph({
-                        text: item,
-                        bold: isBold,
-                        spacing: { before: 100, after: 100 }
-                    }));
-                });
-                
-                return {
-                    properties: {},
-                    children: children
-                };
-            }
+
         });
     </script>
 
