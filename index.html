@@ -8,7 +8,6 @@
     <link rel="icon" href="212.png" type="image/png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-
 <style>
 :root {
     --bg-color: #ffffff;
@@ -19,10 +18,6 @@
     --profit-color: #00c851; /* Green for profit */
     --loss-color: #ff4444; /* Red for loss */
     --section-color: #ffffff;
-    --qa-bg-color: #000000;
-    --qa-text-color: #ffffff;
-    --qa-answer-bg: #ffffff;
-    --qa-answer-text: #555555;
 }
 
 * {
@@ -339,15 +334,14 @@ footer {
     color: #000000;
 }
 
-/* FAQ Section */
+/* FAQ Section - Reverted to original style */
 .faq-item {
     margin-bottom: 8px;
 }
 
 .faq-question {
     padding: 12px 15px;
-    background: var(--qa-bg-color);
-    color: var(--qa-text-color);
+    background: #f8f8f8;
     border-radius: 6px;
     cursor: pointer;
     display: flex;
@@ -359,8 +353,7 @@ footer {
 .faq-answer {
     padding: 12px 15px;
     display: none;
-    background: var(--qa-answer-bg);
-    color: var(--qa-answer-text);
+    background: #fafafa;
     border-radius: 0 0 6px 6px;
     border: 1px solid var(--border-color);
     border-top: none;
