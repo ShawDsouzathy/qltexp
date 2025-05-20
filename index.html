@@ -9,29 +9,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-    <script>
-        const titles = [
-            "QltExportise ",
-            "TradeCalc"
-        ];
-        let titleIndex = 0;
-
-        setInterval(() => {
-            document.title = titles[titleIndex];
-            titleIndex = (titleIndex + 1) % titles.length;
-        }, 1000);
-    </script>
-</head>
-    <style>
-    :root {
+<style>
+:root {
     --bg-color: #ffffff;
     --text-color: #000000;
     --border-color: #000000;
     --accent-color: #000000;
     --highlight-color: #ffffff;
-    --profit-color: #00c851
-    --loss-color: #ff4444;
+    --profit-color: #00c851; /* Green for profit */
+    --loss-color: #ff4444; /* Red for loss */
     --section-color: #ffffff;
+    --qa-bg-color: #000000;
+    --qa-text-color: #ffffff;
+    --qa-answer-bg: #ffffff;
+    --qa-answer-text: #555555;
 }
 
 * {
@@ -204,14 +195,14 @@ input:focus, select:focus, textarea:focus {
 
 .result-row.profit {
     font-weight: 600;
-    color: var(--text-color);
-    border-bottom: 2px solid var(--text-color);
+    color: var(--profit-color);
+    border-bottom: 2px solid var(--profit-color);
 }
 
 .result-row.loss {
     font-weight: 600;
-    color: var(--text-color);
-    border-bottom: 2px solid var(--text-color);
+    color: var(--loss-color);
+    border-bottom: 2px solid var(--loss-color);
 }
 
 .hidden {
@@ -348,13 +339,15 @@ footer {
     color: #000000;
 }
 
+/* FAQ Section */
 .faq-item {
     margin-bottom: 8px;
 }
 
 .faq-question {
     padding: 12px 15px;
-    background: #ffffff;
+    background: var(--qa-bg-color);
+    color: var(--qa-text-color);
     border-radius: 6px;
     cursor: pointer;
     display: flex;
@@ -366,7 +359,8 @@ footer {
 .faq-answer {
     padding: 12px 15px;
     display: none;
-    background: #ffffff;
+    background: var(--qa-answer-bg);
+    color: var(--qa-answer-text);
     border-radius: 0 0 6px 6px;
     border: 1px solid var(--border-color);
     border-top: none;
@@ -390,7 +384,6 @@ footer {
     }
 }
 
-/* Print-specific styles */
 @media print {
     body * {
         visibility: hidden;
@@ -410,7 +403,7 @@ footer {
         display: none;
     }
 }
-    </style>
+</style>
 </head>
 <body>
     <header>
