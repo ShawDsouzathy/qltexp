@@ -9,8 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-   
- <script>
+    <script>
         const titles = [
             "QltExportise ",
             "TradeCalc"
@@ -27,12 +26,12 @@
     :root {
     --bg-color: #ffffff;
     --text-color: #000000;
-    --border-color: #e0e0e0;
-    --accent-color: #333333;
-    --highlight-color: #f5f5f5;
-    --profit-color: #00c851;
-    --loss-color: #ff4444;
-    --section-color: #f8f8f8;
+    --border-color: #000000;
+    --accent-color: #000000;
+    --highlight-color: #ffffff;
+    --profit-color: #000000;
+    --loss-color: #000000;
+    --section-color: #ffffff;
 }
 
 * {
@@ -174,11 +173,11 @@ input:focus, select:focus, textarea:focus {
 }
 
 .btn-secondary {
-    background-color: #666;
+    background-color: #000000;
 }
 
 .btn-download {
-    background-color: #333;
+    background-color: #000000;
     margin-top: 1rem;
 }
 
@@ -187,6 +186,7 @@ input:focus, select:focus, textarea:focus {
     padding: 1.5rem;
     border-radius: 4px;
     margin-top: 1.5rem;
+    border: 1px solid var(--border-color);
 }
 
 .result-row {
@@ -204,14 +204,14 @@ input:focus, select:focus, textarea:focus {
 
 .result-row.profit {
     font-weight: 600;
-    color: var(--profit-color);
-    border-bottom: 2px solid var(--profit-color);
+    color: var(--text-color);
+    border-bottom: 2px solid var(--text-color);
 }
 
 .result-row.loss {
     font-weight: 600;
-    color: var(--loss-color);
-    border-bottom: 2px solid var(--loss-color);
+    color: var(--text-color);
+    border-bottom: 2px solid var(--text-color);
 }
 
 .hidden {
@@ -246,6 +246,7 @@ input:focus, select:focus, textarea:focus {
     border-collapse: collapse;
     margin: 1rem 0;
     font-size: 0.85rem;
+    border: 1px solid var(--border-color);
 }
 
 .items-table th, .items-table td {
@@ -264,7 +265,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .remove-item {
-    color: var(--loss-color);
+    color: var(--text-color);
     cursor: pointer;
     font-weight: bold;
     text-align: center;
@@ -306,7 +307,7 @@ footer {
 }
 
 .pdf-container h2 {
-    color: #333;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -321,7 +322,7 @@ footer {
     width: 100%;
     padding: 0 16px;
     font-family: 'Inter', sans-serif;
-    color: #333;
+    color: #000000;
 }
 
 .video-container {
@@ -329,7 +330,7 @@ footer {
     border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 16/9;
-    background: #000;
+    background: #000000;
     max-width: 800px;
 }
 
@@ -344,7 +345,7 @@ footer {
     font-size: 1rem;
     line-height: 1.4;
     margin: 0 0 1.5rem 0;
-    color: #444;
+    color: #000000;
 }
 
 .faq-item {
@@ -353,19 +354,22 @@ footer {
 
 .faq-question {
     padding: 12px 15px;
-    background: #f8f8f8;
+    background: #ffffff;
     border-radius: 6px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid var(--border-color);
 }
 
 .faq-answer {
     padding: 12px 15px;
     display: none;
-    background: #fafafa;
+    background: #ffffff;
     border-radius: 0 0 6px 6px;
+    border: 1px solid var(--border-color);
+    border-top: none;
 }
 
 @media (max-width: 768px) {
