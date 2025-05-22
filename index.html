@@ -26,12 +26,12 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
-    --border-color: #e0e0e0;
+    --border-color: #d0d0d0; /* Darker grey for borders */
     --accent-color: #555555;
     --highlight-color: #ffffff;
     --profit-color: #2ecc71;
     --loss-color: #e74c3c;
-    --section-color: #ffffff;
+    --section-color: #f8f8f8; /* Light grey for calculator boxes */
     --transition: all 0.2s ease;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 header {
-    padding: 20px 0 15px;
+    padding: 15px 0 10px;
     text-align: center;
     background: var(--bg-color);
 }
@@ -68,7 +68,7 @@ header {
 .logo {
     width: 48px;
     height: 48px;
-    margin: 0 auto 5px; /* Reduced margin between logo and h1 */
+    margin: 0 auto 3px; /* Further reduced margin between logo and h1 */
 }
 
 main {
@@ -84,7 +84,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2rem; /* Increased h1 size */
+    font-size: 2.2rem; /* Increased h1 size */
     font-weight: 600;
     margin-bottom: 1rem;
     text-align: center;
@@ -92,7 +92,7 @@ h1 {
 }
 
 .calculator-container {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
     border-radius: 6px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -111,8 +111,8 @@ h1 {
 .form-section {
     margin-bottom: 0;
     padding: 20px;
-    background-color: var(--section-color);
-    border-bottom: 1px solid var(--border-color);
+    background-color: var(--section-color); /* Light grey background */
+    border-bottom: 1px solid var(--border-color); /* Dark grey border */
 }
 
 .form-section:last-child {
@@ -148,7 +148,7 @@ label {
 input, select, textarea {
     width: 100%;
     padding: 0.7rem 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
     border-radius: 4px;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -192,7 +192,7 @@ input:focus, select:focus, textarea:focus {
     padding: 1.5rem;
     border-radius: 4px;
     margin-top: 1.5rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
 }
 
 .result-row {
@@ -200,7 +200,7 @@ input:focus, select:focus, textarea:focus {
     justify-content: space-between;
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color); /* Dark grey border */
 }
 
 .result-row.total {
@@ -227,7 +227,7 @@ input:focus, select:focus, textarea:focus {
 .unit-toggle {
     display: flex;
     margin-bottom: 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
     border-radius: 4px;
     overflow: hidden;
     width: fit-content;
@@ -253,18 +253,18 @@ input:focus, select:focus, textarea:focus {
     border-collapse: collapse;
     margin: 1rem 0;
     font-size: 0.85rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
 }
 
 .items-table th, .items-table td {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
     padding: 0.6rem;
     text-align: left;
 }
 
 .items-table th {
     font-weight: 600;
-    background-color: #f8f8f8;
+    background-color: #f0f0f0; /* Light grey background */
     color: #555555;
 }
 
@@ -287,14 +287,14 @@ input:focus, select:focus, textarea:focus {
 .form-actions {
     padding: 20px;
     text-align: center;
-    border-top: 1px solid var(--border-color);
-    background-color: #f8f8f8;
+    border-top: 1px solid var(--border-color); /* Dark grey border */
+    background-color: #f0f0f0; /* Light grey background */
 }
 
 footer {
     padding: 20px 0;
     text-align: center;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color); /* Dark grey border */
     font-size: 0.75rem;
     color: #666666;
     background-color: var(--bg-color);
@@ -316,7 +316,7 @@ footer {
     margin-top: 8px;
 }
 
-/* FAQ Section - Keeping your original style */
+/* FAQ Section */
 .faq-item {
     margin-bottom: 12px;
 }
@@ -329,7 +329,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
 }
 
 .faq-answer {
@@ -337,7 +337,7 @@ footer {
     display: none;
     background: #fafafa;
     border-radius: 0 0 6px 6px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Dark grey border */
     border-top: none;
 }
 
@@ -373,7 +373,7 @@ footer {
     }
     
     h1 {
-        font-size: 1.7rem;
+        font-size: 1.9rem; /* Slightly smaller on mobile */
     }
 }
 
