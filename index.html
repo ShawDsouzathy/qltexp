@@ -26,13 +26,12 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
-    --border-color: #d0d0d0; /* Slightly darker grey for borders */
-    --accent-color: #666666; /* Medium grey for accents */
+    --border-color: #e0e0e0;
+    --accent-color: #555555;
     --highlight-color: #ffffff;
     --profit-color: #2ecc71;
     --loss-color: #e74c3c;
     --section-color: #ffffff;
-    --faq-bg: #f8f8f8; /* Light grey for FAQ boxes */
     --transition: all 0.2s ease;
 }
 
@@ -61,20 +60,20 @@ body {
 }
 
 header {
-    padding: 15px 0 10px; /* Reduced header padding */
+    padding: 20px 0 15px;
     text-align: center;
     background: var(--bg-color);
 }
 
 .logo {
-    width: 42px; /* Slightly reduced from 48px */
-    height: 42px;
-    margin: 0 auto 5px; /* Reduced margin below logo */
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 5px; /* Reduced margin between logo and h1 */
 }
 
 main {
     flex: 1;
-    padding: 25px 0;
+    padding: 30px 0;
     width: 100%;
 }
 
@@ -85,30 +84,11 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2rem; /* Increased from 1.8rem */
+    font-size: 2rem; /* Increased h1 size */
     font-weight: 600;
-    margin-bottom: 0.8rem; /* Reduced margin below h1 */
+    margin-bottom: 1rem;
     text-align: center;
     line-height: 1.3;
-}
-
-/* Consistent width containers */
-.calculator-container,
-.intro-container,
-.faq-container {
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 16px;
-}
-
-@media (min-width: 769px) {
-    .calculator-container,
-    .intro-container,
-    .faq-container {
-        padding: 0;
-    }
 }
 
 .calculator-container {
@@ -116,7 +96,16 @@ h1 {
     border-radius: 6px;
     margin-bottom: 20px;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 32px);
     background: white;
+}
+
+@media (min-width: 769px) {
+    .calculator-container {
+        max-width: 800px;
+    }
 }
 
 .form-section {
@@ -136,58 +125,42 @@ h1 {
     color: #222222;
 }
 
-/* FAQ Section Styles */
-.faq-item {
-    margin-bottom: 12px;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
-.faq-question {
-    padding: 14px 18px;
-    background-color: var(--faq-bg);
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    color: #555555;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.85rem;
     transition: var(--transition);
 }
 
-.faq-answer {
-    padding: 16px;
-    display: none;
-    background-color: white;
-    border: 1px solid var(--border-color);
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    margin-top: -1px;
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #b0b0b0;
 }
 
-/* Text content width */
-.intro-description,
-.faq-answer {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.intro-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0.8rem 0 1.5rem 0;
-    color: #555555;
-    padding: 0 16px;
-}
-
-@media (min-width: 769px) {
-    .intro-description {
-        padding: 0;
-    }
-}
-
-/* Rest of your existing styles... */
 .btn {
     padding: 0.75rem 1.25rem;
     background-color: var(--accent-color);
@@ -202,7 +175,16 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #555555;
+    background-color: #444444;
+}
+
+.btn-secondary {
+    background-color: #666666;
+}
+
+.btn-download {
+    background-color: #2ecc71;
+    margin-top: 1rem;
 }
 
 .result-box {
@@ -213,29 +195,207 @@ h1 {
     border: 1px solid var(--border-color);
 }
 
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.result-row.total {
+    font-weight: 600;
+    border-bottom: 1px solid #b0b0b0;
+}
+
+.result-row.profit {
+    font-weight: 600;
+    color: var(--profit-color);
+    border-bottom: 1px solid var(--profit-color);
+}
+
+.result-row.loss {
+    font-weight: 600;
+    color: var(--loss-color);
+    border-bottom: 1px solid var(--loss-color);
+}
+
+.hidden {
+    display: none;
+}
+
+.unit-toggle {
+    display: flex;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.unit-toggle button {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.unit-toggle button.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+}
+
+.items-table th, .items-table td {
+    border: 1px solid var(--border-color);
+    padding: 0.6rem;
+    text-align: left;
+}
+
 .items-table th {
     font-weight: 600;
-    background-color: #f5f5f5; /* Lighter grey */
+    background-color: #f8f8f8;
     color: #555555;
 }
 
+.add-item-btn {
+    margin-top: 0.5rem;
+}
+
+.remove-item {
+    color: #888888;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.remove-item:hover {
+    color: var(--loss-color);
+}
+
 .form-actions {
-    background-color: #f5f5f5; /* Lighter grey */
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background-color: #f8f8f8;
+}
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    color: #666666;
+    background-color: var(--bg-color);
+}
+
+.footer-logo {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.copyright {
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+}
+
+.contact-info {
+    margin-top: 8px;
+}
+
+/* FAQ Section - Keeping your original style */
+.faq-item {
+    margin-bottom: 12px;
+}
+
+.faq-question {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+}
+
+.faq-answer {
+    padding: 16px 20px;
+    display: none;
+    background: #fafafa;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+}
+
+.intro-container {
+    max-width: 800px;
+    margin: 20px auto;
+    width: 100%;
+    padding: 0 24px;
+}
+
+.intro-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0.8rem 0 1.5rem 0;
+    color: #555555;
 }
 
 @media (max-width: 768px) {
+    .form-group {
+        min-width: 100%;
+    }
+
     .main-container {
+        padding: 0 16px;
+    }
+
+    .calculator-container {
+        width: calc(100% - 32px);
+    }
+
+    .intro-container {
         padding: 0 16px;
     }
     
     h1 {
-        font-size: 1.8rem; /* Slightly smaller on mobile */
+        font-size: 1.7rem;
     }
-    
-    .calculator-container,
-    .intro-description,
-    .faq-item {
-        width: calc(100% - 32px);
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #results-section, #results-section * {
+        visibility: visible;
+    }
+
+    #results-section {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+    }
+
+    .btn-download {
+        display: none;
     }
 }
 </style>
