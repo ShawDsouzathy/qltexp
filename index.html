@@ -29,15 +29,12 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #000000;
-    --border-color: #e0e0e0;
+    --border-color: #000000;
     --accent-color: #000000;
-    --highlight-color: #f8f8f8;
-    --profit-color: #00c851;
-    --loss-color: #ff4444;
+    --highlight-color: #ffffff;
+    --profit-color: #00c851; /* Green for profit */
+    --loss-color: #ff4444; /* Red for loss */
     --section-color: #ffffff;
-    --gradient-dark: #000000;
-    --gradient-mid: #666666;
-    --gradient-light: #ffffff;
 }
 
 * {
@@ -65,17 +62,21 @@ body {
 }
 
 header {
-    padding: 40px 0 30px;
+    padding: 30px 0;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
-    background: var(--bg-color);
-    margin-bottom: 30px;
 }
 
 .logo {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 15px;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+}
+
+main {
+    flex: 1;
+    padding: 30px 0;
+    width: 100%;
 }
 
 h1, h2, h3 {
@@ -84,56 +85,36 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin-bottom: 2rem;
     text-align: center;
-    line-height: 1.2;
-    background: linear-gradient(135deg, var(--gradient-dark) 0%, var(--gradient-mid) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-backdrop-filter: blur(1px);
-    backdrop-filter: blur(1px);
+    line-height: 1.3;
 }
 
 .calculator-container {
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    margin-bottom: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
-    width: calc(100% - 32px);
-    background: var(--bg-color);
-    transition: all 0.3s ease;
+    width: calc(100% - 32px); /* default for mobile */
 }
 
-.calculator-container:hover {
-    background: rgba(0,0,0,0.02);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-}
-
+/* NEW: Limit calculator width on large screens */
 @media (min-width: 769px) {
     .calculator-container {
-        max-width: 800px;
+        max-width: 800px; /* same as intro-container */
     }
 }
 
 .form-section {
     margin-bottom: 0;
-    padding: 25px;
+    padding: 20px;
     background-color: var(--section-color);
     border-bottom: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.form-section:hover {
-    background: rgba(0,0,0,0.02);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
 }
 
 .form-section:last-child {
@@ -141,20 +122,16 @@ h1 {
 }
 
 .section-title {
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
-    background: linear-gradient(90deg, var(--gradient-dark) 0%, var(--gradient-mid) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
 }
 
 .form-row {
     display: flex;
     gap: 15px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     flex-wrap: wrap;
 }
 
@@ -166,58 +143,56 @@ h1 {
 label {
     display: block;
     font-weight: 500;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     font-size: 0.85rem;
-    color: var(--gradient-dark);
 }
 
 input, select, textarea {
     width: 100%;
-    padding: 0.7rem;
+    padding: 0.6rem;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 3px;
     background-color: var(--bg-color);
     color: var(--text-color);
     font-size: 0.85rem;
-    transition: all 0.3s ease;
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: var(--gradient-dark);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 1px var(--accent-color);
 }
 
 .btn {
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, var(--gradient-dark) 0%, var(--gradient-mid) 100%);
+    padding: 0.7rem 1.3rem;
+    background-color: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 3px;
     cursor: pointer;
     font-weight: 500;
     margin-right: 0.5rem;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
+    transition: background-color 0.2s;
+    font-size: 0.85rem;
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, var(--gradient-mid) 0%, var(--gradient-dark) 100%);
+    background-color: var(--text-color);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, var(--gradient-mid) 0%, #999999 100%);
-    color: white;
+    background-color: #000000;
 }
 
 .btn-download {
-    background: linear-gradient(135deg, var(--gradient-dark) 0%, #333333 100%);
+    background-color: #000000;
     margin-top: 1rem;
 }
 
 .result-box {
     background-color: var(--highlight-color);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 4px;
     margin-top: 1.5rem;
     border: 1px solid var(--border-color);
 }
@@ -232,7 +207,7 @@ input:focus, select:focus, textarea:focus {
 
 .result-row.total {
     font-weight: 600;
-    border-bottom: 2px solid var(--gradient-dark);
+    border-bottom: 2px solid var(--text-color);
 }
 
 .result-row.profit {
@@ -255,23 +230,22 @@ input:focus, select:focus, textarea:focus {
     display: flex;
     margin-bottom: 1rem;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 4px;
     overflow: hidden;
     width: fit-content;
 }
 
 .unit-toggle button {
-    padding: 0.6rem 1.2rem;
+    padding: 0.5rem 1rem;
     background: none;
     border: none;
     cursor: pointer;
     font-weight: 500;
-    font-size: 0.85rem;
-    transition: all 0.3s ease;
+    font-size: 0.8rem;
 }
 
 .unit-toggle button.active {
-    background: linear-gradient(135deg, var(--gradient-dark) 0%, var(--gradient-mid) 100%);
+    background-color: var(--accent-color);
     color: white;
 }
 
@@ -281,20 +255,17 @@ input:focus, select:focus, textarea:focus {
     margin: 1rem 0;
     font-size: 0.85rem;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
-    overflow: hidden;
 }
 
 .items-table th, .items-table td {
     border: 1px solid var(--border-color);
-    padding: 0.7rem;
+    padding: 0.6rem;
     text-align: left;
 }
 
 .items-table th {
     font-weight: 600;
-    background: linear-gradient(135deg, var(--highlight-color) 0%, #e8e8e8 100%);
-    color: var(--gradient-dark);
+    background-color: var(--highlight-color);
 }
 
 .add-item-btn {
@@ -306,33 +277,26 @@ input:focus, select:focus, textarea:focus {
     cursor: pointer;
     font-weight: bold;
     text-align: center;
-    transition: color 0.2s;
-}
-
-.remove-item:hover {
-    color: var(--loss-color);
 }
 
 .form-actions {
-    padding: 25px;
+    padding: 20px;
     text-align: center;
     border-top: 1px solid var(--border-color);
-    background-color: var(--highlight-color);
 }
 
 footer {
-    padding: 30px 0;
+    padding: 24px 0;
     text-align: center;
     border-top: 1px solid var(--border-color);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-color);
-    background: var(--bg-color);
 }
 
 .footer-logo {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 5px;
     opacity: 0.8;
 }
 
@@ -341,23 +305,18 @@ footer {
 }
 
 .contact-info {
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .pdf-container {
-    padding: 25px;
+    padding: 20px;
     background: white;
     color: black;
-    border-radius: 8px;
 }
 
 .pdf-container h2 {
-    color: var(--gradient-dark);
+    color: #000000;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, var(--gradient-dark) 0%, var(--gradient-mid) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
 }
 
 .pdf-container .result-row {
@@ -371,12 +330,12 @@ footer {
     width: 100%;
     padding: 0 16px;
     font-family: 'Inter', sans-serif;
-    color: var(--gradient-dark);
+    color: #000000;
 }
 
 .video-container {
-    margin: 25px 0;
-    border-radius: 12px;
+    margin: 20px 0;
+    border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 16/9;
     background: #000000;
@@ -392,45 +351,34 @@ footer {
 
 .intro-description {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.4;
     margin: 0 0 1.5rem 0;
-    color: var(--gradient-dark);
+    color: #000000;
 }
 
 /* FAQ Section */
 .faq-item {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .faq-question {
-    padding: 14px 18px;
-    background: var(--highlight-color);
-    border-radius: 8px;
+    padding: 12px 15px;
+    background:linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+    border-radius: 6px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--border-color);
-    color: var(--gradient-dark);
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.faq-question:hover {
-    background: rgba(0,0,0,0.05);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
 }
 
 .faq-answer {
-    padding: 16px;
+    padding: 12px 15px;
     display: none;
-    background: var(--highlight-color);
-    border-radius: 0 0 8px 8px;
+    background: #fafafa;
+    border-radius: 0 0 6px 6px;
     border: 1px solid var(--border-color);
     border-top: none;
-    color: var(--gradient-dark);
-    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -449,10 +397,6 @@ footer {
     .intro-container {
         padding: 0 12px;
     }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
 }
 
 @media print {
@@ -470,6 +414,7 @@ footer {
         top: 0;
         width: 100%;
         border: none;
+        box-shadow: none;
     }
 
     .btn-download {
