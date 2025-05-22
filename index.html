@@ -26,34 +26,25 @@
 </head>
 <style>
 :root {
-    --bg-gradient: linear-gradient(135deg, #e0eafc, #cfdef3);
-    --text-color: #0f0f0f;
-    --border-color: rgba(0, 0, 0, 0.1);
-    --accent-color: #1e88e5;
-    --highlight-color: rgba(255, 255, 255, 0.9);
+    --bg-gradient: linear-gradient(135deg, #f0f4ff, #ffffff);
+    --text-color: #1a1a1a;
+    --border-color: #e0e0e0;
+    --accent-color: #0057ff;
+    --highlight-color: #ffffff;
     --profit-color: #00c851;
     --loss-color: #ff4444;
-    --section-color: rgba(255, 255, 255, 0.7);
-    --glass-blur: blur(12px);
-    --card-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: -0.015em;
+    --section-color: rgba(255, 255, 255, 0.8);
 }
 
 body {
     background: var(--bg-gradient);
     color: var(--text-color);
-    line-height: 1.5;
-    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
 }
 
 .main-container {
@@ -87,43 +78,46 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 1.8rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
+    font-size: 2rem;
     text-align: center;
     line-height: 1.3;
+    background: linear-gradient(90deg, #0057ff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
 }
 
 .calculator-container {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: 0 auto 20px;
     background: var(--section-color);
-    backdrop-filter: var(--glass-blur);
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    margin: 30px auto;
-    width: 100%;
-    max-width: 768px;
-    transition: all 0.3s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    width: 900px;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .calculator-container {
+        width: calc(100% - 24px);
+    }
 }
 
 .form-section {
     padding: 20px;
-    background-color: transparent;
     border-bottom: 1px solid var(--border-color);
 }
 
 .section-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
 }
 
 .form-row {
     display: flex;
     gap: 15px;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
@@ -133,57 +127,59 @@ h1 {
 }
 
 label {
-    display: block;
     font-weight: 500;
-    margin-bottom: 0.3rem;
     font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    display: block;
 }
 
 input, select, textarea {
     width: 100%;
     padding: 0.6rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background-color: #ffffffd9;
     font-size: 0.85rem;
-    transition: all 0.2s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.2);
 }
 
 .btn {
-    padding: 0.7rem 1.3rem;
+    padding: 0.75rem 1.5rem;
     background: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 4px;
     font-weight: 500;
-    margin-right: 0.5rem;
-    transition: background 0.2s ease;
+    cursor: pointer;
     font-size: 0.85rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
 }
 
 .btn:hover {
-    background: #1565c0;
+    background-color: #0041cc;
 }
 
 .btn-secondary, .btn-download {
-    background: #212121;
+    background-color: #333333;
+    margin-top: 1rem;
 }
 
 .result-box {
-    background-color: var(--highlight-color);
+    background: #ffffff;
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 6px;
     margin-top: 1.5rem;
     border: 1px solid var(--border-color);
-    box-shadow: var(--card-shadow);
+    display: none;
+}
+
+.result-box.show {
+    display: block;
 }
 
 .result-row {
@@ -200,24 +196,24 @@ input:focus, select:focus, textarea:focus {
 }
 
 .result-row.profit {
-    font-weight: 600;
     color: var(--profit-color);
     border-bottom: 2px solid var(--profit-color);
+    font-weight: 600;
 }
 
 .result-row.loss {
-    font-weight: 600;
     color: var(--loss-color);
     border-bottom: 2px solid var(--loss-color);
+    font-weight: 600;
 }
 
 .unit-toggle {
     display: flex;
-    margin-bottom: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     overflow: hidden;
     width: fit-content;
+    margin-bottom: 1rem;
 }
 
 .unit-toggle button {
@@ -227,7 +223,6 @@ input:focus, select:focus, textarea:focus {
     cursor: pointer;
     font-weight: 500;
     font-size: 0.8rem;
-    transition: background 0.2s ease;
 }
 
 .unit-toggle button.active {
@@ -250,8 +245,8 @@ input:focus, select:focus, textarea:focus {
 }
 
 .items-table th {
-    font-weight: 600;
     background-color: var(--highlight-color);
+    font-weight: 600;
 }
 
 .remove-item {
@@ -270,114 +265,19 @@ input:focus, select:focus, textarea:focus {
 footer {
     padding: 24px 0;
     text-align: center;
+    border-top: 1px solid var(--border-color);
     font-size: 0.75rem;
     color: var(--text-color);
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-logo {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 5px;
-    opacity: 0.8;
-}
-
-.contact-info {
-    margin-top: 8px;
-}
-
-.pdf-container {
-    padding: 20px;
-    background: white;
-    color: black;
-}
-
-.pdf-container h2 {
-    color: #000000;
-    margin-bottom: 20px;
-}
-
-.pdf-container .result-row {
-    padding: 8px 0;
-}
-
-/* FAQ Section */
-.faq-item {
-    margin-bottom: 8px;
 }
 
 .faq-question {
-    padding: 12px 15px;
-    background: linear-gradient(135deg, #f9f9f9, #eaeaea);
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--border-color);
-    font-weight: 500;
+    background: linear-gradient(135deg, #f2f2f2 0%, #e0e0e0 100%);
 }
 
 .faq-answer {
-    padding: 12px 15px;
-    display: none;
-    background: #fafafa;
-    border-radius: 0 0 6px 6px;
-    border: 1px solid var(--border-color);
-    border-top: none;
+    background: #f9f9f9;
 }
 
-.intro-container {
-    max-width: 800px;
-    margin: 30px auto;
-    width: 100%;
-    padding: 0 16px;
-    color: #000000;
-}
-
-.video-container {
-    margin: 20px 0;
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 16/9;
-    background: #000000;
-    max-width: 800px;
-}
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-.intro-description {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin: 0 0 1.5rem 0;
-    color: #000000;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    .form-group {
-        min-width: 100%;
-    }
-
-    .main-container {
-        padding: 0 12px;
-    }
-
-    .calculator-container {
-        width: calc(100% - 24px);
-    }
-
-    .intro-container {
-        padding: 0 12px;
-    }
-}
-
-/* Print view */
 @media print {
     body * {
         visibility: hidden;
@@ -391,22 +291,24 @@ footer {
         top: 0;
         width: 100%;
         border: none;
-        box-shadow: none;
     }
     .btn-download {
         display: none;
     }
 }
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const calculateBtn = document.getElementById("calculateBtn");
+    const resultBox = document.querySelector(".result-box");
+    if (calculateBtn && resultBox) {
+        calculateBtn.addEventListener("click", () => {
+            resultBox.classList.add("show");
+        });
+    }
+});
+</script>
 
 
 </head>
