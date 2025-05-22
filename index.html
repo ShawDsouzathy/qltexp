@@ -24,6 +24,7 @@
     </script>
 
 </head>
+
 <style>
 :root {
     --bg-color: #ffffff;
@@ -34,8 +35,8 @@
     --profit-color: #00c851;
     --loss-color: #ff4444;
     --section-color: #ffffff;
-    --gradient-dark: #2c3e50;
-    --gradient-mid: #bdc3c7;
+    --gradient-dark: #000000;
+    --gradient-mid: #666666;
     --gradient-light: #ffffff;
 }
 
@@ -67,9 +68,7 @@ header {
     padding: 40px 0 30px;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
-    background: linear-gradient(135deg, var(--gradient-light) 0%, var(--gradient-mid) 50%, var(--gradient-dark) 100%);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+    background: var(--bg-color);
     margin-bottom: 30px;
 }
 
@@ -77,13 +76,6 @@ header {
     width: 72px;
     height: 72px;
     margin: 0 auto 15px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-}
-
-main {
-    flex: 1;
-    padding: 20px 0 40px;
-    width: 100%;
 }
 
 h1, h2, h3 {
@@ -98,11 +90,12 @@ h1 {
     margin-bottom: 1.5rem;
     text-align: center;
     line-height: 1.2;
-    background: linear-gradient(135deg, var(--gradient-dark) 0%, var(--gradient-mid) 50%, var(--gradient-light) 100%);
+    background: linear-gradient(135deg, var(--gradient-dark) 0%, var(--gradient-mid) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
 }
 
 .calculator-container {
@@ -113,14 +106,14 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: calc(100% - 32px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
     background: var(--bg-color);
+    transition: all 0.3s ease;
 }
 
 .calculator-container:hover {
-    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-    transform: translateY(-2px);
+    background: rgba(0,0,0,0.02);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 }
 
 @media (min-width: 769px) {
@@ -138,7 +131,9 @@ h1 {
 }
 
 .form-section:hover {
-    background-color: rgba(0,0,0,0.02);
+    background: rgba(0,0,0,0.02);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 }
 
 .form-section:last-child {
@@ -190,7 +185,6 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--gradient-dark);
-    box-shadow: 0 0 0 2px rgba(44,62,80,0.1);
 }
 
 .btn {
@@ -204,27 +198,19 @@ input:focus, select:focus, textarea:focus {
     margin-right: 0.5rem;
     transition: all 0.3s ease;
     font-size: 0.9rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, var(--gradient-dark) 0%, var(--gradient-mid) 70%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, var(--gradient-mid) 0%, var(--gradient-dark) 100%);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, var(--gradient-mid) 0%, var(--gradient-light) 100%);
-    color: var(--gradient-dark);
+    background: linear-gradient(135deg, var(--gradient-mid) 0%, #999999 100%);
+    color: white;
 }
 
 .btn-download {
-    background: linear-gradient(135deg, var(--gradient-dark) 0%, #34495e 100%);
+    background: linear-gradient(135deg, var(--gradient-dark) 0%, #333333 100%);
     margin-top: 1rem;
 }
 
@@ -234,7 +220,6 @@ input:focus, select:focus, textarea:focus {
     border-radius: 8px;
     margin-top: 1.5rem;
     border: 1px solid var(--border-color);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .result-row {
@@ -273,7 +258,6 @@ input:focus, select:focus, textarea:focus {
     border-radius: 6px;
     overflow: hidden;
     width: fit-content;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .unit-toggle button {
@@ -299,7 +283,6 @@ input:focus, select:focus, textarea:focus {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .items-table th, .items-table td {
@@ -343,7 +326,7 @@ footer {
     border-top: 1px solid var(--border-color);
     font-size: 0.8rem;
     color: var(--text-color);
-    background: linear-gradient(135deg, var(--highlight-color) 0%, #f0f0f0 100%);
+    background: var(--bg-color);
 }
 
 .footer-logo {
@@ -351,7 +334,6 @@ footer {
     height: 40px;
     margin-bottom: 10px;
     opacity: 0.8;
-    filter: grayscale(100%);
 }
 
 .copyright {
@@ -367,7 +349,6 @@ footer {
     background: white;
     color: black;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .pdf-container h2 {
@@ -400,7 +381,6 @@ footer {
     aspect-ratio: 16/9;
     background: #000000;
     max-width: 800px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 .video-container video {
@@ -424,7 +404,7 @@ footer {
 
 .faq-question {
     padding: 14px 18px;
-    background: linear-gradient(135deg, var(--highlight-color) 0%, #e8e8e8 100%);
+    background: var(--highlight-color);
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -437,13 +417,15 @@ footer {
 }
 
 .faq-question:hover {
-    background: linear-gradient(135deg, #e8e8e8 0%, #d8d8d8 100%);
+    background: rgba(0,0,0,0.05);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 }
 
 .faq-answer {
     padding: 16px;
     display: none;
-    background: #fafafa;
+    background: var(--highlight-color);
     border-radius: 0 0 8px 8px;
     border: 1px solid var(--border-color);
     border-top: none;
@@ -488,7 +470,6 @@ footer {
         top: 0;
         width: 100%;
         border: none;
-        box-shadow: none;
     }
 
     .btn-download {
@@ -496,9 +477,6 @@ footer {
     }
 }
 </style>
-
-
-</head>
 <body>
     <header>
         <div class="main-container">
