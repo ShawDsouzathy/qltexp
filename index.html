@@ -457,9 +457,9 @@ footer {
   </div>
 </div>
 
-           <div style="
+<div style="
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 400px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -468,12 +468,12 @@ footer {
     <div style="
         position: relative;
         width: 100%;
-        padding-bottom: 75%; /* 4:3 Aspect Ratio (300/400) */
+        padding-bottom: 177.78%; /* 16:9 Aspect Ratio (1600/900) */
         background-color: #000;
-        border-radius: 12px; /* Curved corners */
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow on all sides */
-        cursor: pointer; /* Indicates clickable */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
     ">
         <video 
             id="myVideo"
@@ -484,11 +484,14 @@ footer {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                border-radius: 12px; /* Match container */
+                border-radius: 12px;
             "
-            poster="https://via.placeholder.com/400x300"
+            poster="https://via.placeholder.com/900x1600"
+            autoplay
+            loop
+            muted
         >
-            <source src="0523.mp4" type="video/mp4">
+            <source src="tradecal.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -506,9 +509,7 @@ footer {
             video.pause();
         }
     });
-</script>
-           
-        
+</script>        
 
 <div style="margin: 1.5rem auto 0; max-width: 800px; width: calc(100% - 32px); padding: 0 16px;">
     <!-- FAQ Title -->
