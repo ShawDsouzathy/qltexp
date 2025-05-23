@@ -451,7 +451,7 @@ footer {
     <span style="display: inline-block; vertical-align: middle; margin-left: 0.5rem; font-size: 0.8rem; color: #333333;margin-top: 0.5rem">4.5/5</span>
     
     <!-- User reviews text -->
-    <div style="font-size: 0.8rem; color: #a1a1a1; letter-spacing: -0.015em; line-height: 1.2; margin-top: 0.2rem;">
+    <div style="font-size: 0.8rem; color: #a1a1a1; letter-spacing: -0.015em; line-height: 1.2; margin-top: 0.2rem; margin-bottom: 1.2rem">
       (Based on 1,000+ Users review worldwide)
     </div>
   </div>
@@ -470,8 +470,10 @@ footer {
         width: 100%;
         padding-bottom: 75%; /* 4:3 Aspect Ratio (300/400) */
         background-color: #000;
-        border-radius: 8px;
+        border-radius: 12px; /* Curved corners */
         overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow on all sides */
+        cursor: pointer; /* Indicates clickable */
     ">
         <video 
             id="myVideo"
@@ -482,135 +484,31 @@ footer {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                border-radius: 12px; /* Match container */
             "
             poster="https://via.placeholder.com/400x300"
         >
-            <source src="0523.mp4" type="video/mp4">
+            <source src="your-video-source.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        
-        <div style="
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        ">
-            <div style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                color: white;
-                font-size: 12px;
-            ">
-                <span id="currentTime">0:00</span>
-                <span id="duration">0:00</span>
-            </div>
-            
-            <input 
-                type="range" 
-                id="progressBar" 
-                style="
-                    width: 100%;
-                    height: 3px;
-                    appearance: none;
-                    background: rgba(255,255,255,0.2);
-                    border-radius: 2px;
-                    cursor: pointer;
-                "
-                min="0" 
-                value="0"
-            >
-            
-            <div style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            ">
-                <button id="playPauseBtn" style="
-                    background: none;
-                    border: none;
-                    color: white;
-                    font-size: 14px;
-                    cursor: pointer;
-                    padding: 6px;
-                ">
-                    ▶️
-                </button>
-                
-                <select id="speedControl" style="
-                    background: rgba(255,255,255,0.2);
-                    color: white;
-                    border: none;
-                    border-radius: 4px;
-                    padding: 4px 8px;
-                    font-size: 12px;
-                    cursor: pointer;
-                ">
-                    <option value="0.5">0.5x</option>
-                    <option value="1" selected>1x</option>
-                    <option value="1.5">1.5x</option>
-                    <option value="2">2x</option>
-                </select>
-            </div>
-        </div>
     </div>
 </div>
 
 <script>
     const video = document.getElementById('myVideo');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const progressBar = document.getElementById('progressBar');
-    const currentTime = document.getElementById('currentTime');
-    const duration = document.getElementById('duration');
-    const speedControl = document.getElementById('speedControl');
+    const videoContainer = document.querySelector('div[style*="position: relative"]');
     
-    // Play/Pause toggle
-    playPauseBtn.addEventListener('click', () => {
+    // Click to play/pause
+    videoContainer.addEventListener('click', () => {
         if (video.paused) {
             video.play();
-            playPauseBtn.textContent = '⏸';
         } else {
             video.pause();
-            playPauseBtn.textContent = '▶️';
         }
     });
-    
-    // Update progress bar
-    video.addEventListener('timeupdate', () => {
-        const percent = (video.currentTime / video.duration) * 100;
-        progressBar.value = percent;
-        currentTime.textContent = formatTime(video.currentTime);
-    });
-    
-    // Set video duration when loaded
-    video.addEventListener('loadedmetadata', () => {
-        duration.textContent = formatTime(video.duration);
-        progressBar.max = video.duration;
-    });
-    
-    // Seek video when progress bar is changed
-    progressBar.addEventListener('input', () => {
-        const seekTime = (progressBar.value / 100) * video.duration;
-        video.currentTime = seekTime;
-    });
-    
-    // Change playback speed
-    speedControl.addEventListener('change', () => {
-        video.playbackRate = speedControl.value;
-    });
-    
-    // Format time (seconds to MM:SS)
-    function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-    }
 </script>
+           
+        
 
 <div style="margin: 1.5rem auto 0; max-width: 800px; width: calc(100% - 32px); padding: 0 16px;">
     <!-- FAQ Title -->
