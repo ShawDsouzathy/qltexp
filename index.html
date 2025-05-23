@@ -486,72 +486,42 @@ footer {
                 border-radius: 10px;
             "
             poster="https://via.placeholder.com/900x1600"
+            autoplay
             loop
             playsinline
+            muted
         >
             <source src="tradecal.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        
-        <!-- Sound toggle button (hidden by default) -->
-        <button id="soundBtn" style="
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0,0,0,0.5);
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
-            z-index: 10;
-            display: none; /* Hidden until user interaction */
-        ">🔇</button>
     </div>
 </div>
 
 <script>
     const video = document.getElementById('myVideo');
-    const soundBtn = document.getElementById('soundBtn');
-    let userInteracted = false;
+    
+    // Try to unmute after a small delay (helps with autoplay)
+    setTimeout(() => {
+        video.muted = false;
+    }, 1000);
 
-    // Handle first user interaction
-    document.addEventListener('click', () => {
-        if (!userInteracted) {
-            userInteracted = true;
+    // Click to play/pause (will unmute if needed)
+    video.addEventListener('click', () => {
+        if (video.paused) {
             video.play().then(() => {
                 video.muted = false;
-                soundBtn.style.display = 'block';
-                soundBtn.textContent = video.muted ? '🔇' : '🔊';
-            }).catch(e => console.log('Play failed:', e));
-        }
-    }, { once: true });
-
-    // Click to play/pause video
-    video.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (video.paused) {
-            video.play();
+            });
         } else {
             video.pause();
         }
     });
 
-    // Sound toggle
-    soundBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        video.muted = !video.muted;
-        soundBtn.textContent = video.muted ? '🔇' : '🔊';
-    });
-
-    // Show sound button when video starts playing
-    video.addEventListener('play', () => {
-        if (userInteracted) {
-            soundBtn.style.display = 'block';
-        }
-    });
+    // Special handling for Safari
+    document.addEventListener('click', () => {
+        video.play().then(() => {
+            video.muted = false;
+        });
+    }, { once: true });
 </script>
 <div style="margin: 1.5rem auto 0; max-width: 800px; width: calc(100% - 32px); padding: 0 16px;">
     <!-- FAQ Title -->
