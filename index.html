@@ -459,20 +459,20 @@ footer {
 
 <div style="
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 900px;
-    width: 100%;
+    max-width: 500px; /* Reduced from 900px */
+    width: 90%; /* Makes it responsive on smaller screens */
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
 ">
     <div style="
         position: relative;
         width: 100%;
-        padding-bottom: 177.78%; /* 16:9 Aspect Ratio (1600/900) */
+        padding-bottom: 177.78%; /* Maintains 9:16 aspect ratio */
         background-color: #000;
-        border-radius: 12px;
+        border-radius: 10px; /* Slightly smaller radius */
         overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow */
         cursor: pointer;
     ">
         <video 
@@ -484,12 +484,13 @@ footer {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                border-radius: 12px;
+                border-radius: 10px;
             "
             poster="https://via.placeholder.com/900x1600"
             autoplay
             loop
             muted
+            playsinline /* Better mobile behavior */
         >
             <source src="tradecal.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -501,15 +502,27 @@ footer {
     const video = document.getElementById('myVideo');
     const videoContainer = document.querySelector('div[style*="position: relative"]');
     
+    // Verify video is muted (no sound)
+    video.volume = 0; // Ensures no sound
+    console.log('Video volume set to:', video.volume); // Should log 0
+    
     // Click to play/pause
     videoContainer.addEventListener('click', () => {
         if (video.paused) {
-            video.play();
+            video.play().catch(e => console.log('Play failed:', e));
         } else {
             video.pause();
         }
     });
-</script>        
+    
+    // Handle autoplay restrictions
+    document.addEventListener('DOMContentLoaded', () => {
+        video.play().catch(e => {
+            console.log('Autoplay blocked:', e);
+            // Optionally show a play button here if needed
+        });
+    });
+</script>      
 
 <div style="margin: 1.5rem auto 0; max-width: 800px; width: calc(100% - 32px); padding: 0 16px;">
     <!-- FAQ Title -->
