@@ -793,6 +793,10 @@ function toggleFAQ(element) {
                 <button class="btn" id="calculate-btn">Calculate Costs & Profit</button>
                 <button class="btn btn-secondary" id="reset-btn">Reset Form</button>
             </div>
+            <script> document.querySelector('.calculate-btn').addEventListener('click', function() {
+    document.querySelector('.result-box').style.display = 'block';
+});
+  </script>
             
             <!-- Results Section -->
             <div class="result-box hidden" id="results-section">
@@ -899,6 +903,7 @@ function toggleFAQ(element) {
             </div>
         </div>
     </main>
+ 
     
     
     <footer>
