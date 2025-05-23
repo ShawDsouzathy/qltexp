@@ -468,12 +468,13 @@ footer {
         position: relative;
         width: 100%;
         padding-bottom: 177.78%;
-        background-color: #000;
+        background-color: transparent;
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         cursor: pointer;
     ">
+        <!-- Video element with poster frame visible -->
         <video 
             id="myVideo"
             style="
@@ -484,16 +485,18 @@ footer {
                 height: 100%;
                 object-fit: cover;
                 border-radius: 10px;
+                background-color: transparent;
             "
-            poster="https://via.placeholder.com/900x1600"
+            poster="tradecal-poster.jpg" <!-- Use actual first frame image -->
             loop
             playsinline
+            preload="metadata" <!-- Helps load first frame faster -->
         >
             <source src="tradecal.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
-        <!-- Modern play button -->
+        <!-- Modern play button overlay -->
         <div id="playButton" style="
             position: absolute;
             top: 50%;
@@ -501,16 +504,18 @@ footer {
             transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
             pointer-events: none;
         ">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-left: 4px;">
-                <path d="M8 5V19L19 12L8 5Z" fill="white"/>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M8 5V19L19 12L8 5Z" fill="white" style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.5))"/>
             </svg>
         </div>
     </div>
@@ -521,6 +526,11 @@ footer {
     const playButton = document.getElementById('playButton');
     let hideTimeout;
 
+    // Ensure first frame is shown immediately
+    video.addEventListener('loadedmetadata', function() {
+        video.currentTime = 0.1; // Small offset to ensure frame loads
+    });
+
     // Click to play/pause
     video.addEventListener('click', () => {
         if (video.paused) {
@@ -528,21 +538,21 @@ footer {
             // Fade out play button after 1 second
             hideTimeout = setTimeout(() => {
                 playButton.style.opacity = '0';
+                playButton.style.transform = 'translate(-50%, -50%) scale(0.8)';
             }, 1000);
         } else {
             video.pause();
             clearTimeout(hideTimeout);
             playButton.style.opacity = '1';
+            playButton.style.transform = 'translate(-50%, -50%) scale(1)';
         }
     });
 
     // Show play button when video ends
     video.addEventListener('ended', () => {
         playButton.style.opacity = '1';
+        playButton.style.transform = 'translate(-50%, -50%) scale(1)';
     });
-
-    // Initial state
-    playButton.style.opacity = '1';
 </script>
 <div style="margin: 1.5rem auto 0; max-width: 800px; width: calc(100% - 32px); padding: 0 16px;">
     <!-- FAQ Title -->
