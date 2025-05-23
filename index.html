@@ -22,8 +22,8 @@
             titleIndex = (titleIndex + 1) % titles.length;
         }, 1000);
     </script>
-<style> 
-:root {
+<style>
+   :root {
     --bg-color: #ffffff;
     --text-color: #333333;
     --border-color: #d0d0d0;
@@ -31,7 +31,7 @@
     --highlight-color: #ffffff;
     --profit-color: #2ecc71;
     --loss-color: #e74c3c;
-    --section-color: #f8f8f8;
+    --section-color: #f0f0f0; /* Changed to slightly darker grey */
     --transition: all 0.2s ease;
 }
 
@@ -102,7 +102,7 @@ h1 span.free {
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
-    width: calc(100% - 64px);
+    width: calc(100% - 48px); /* Increased width on mobile */
     max-width: 1000px;
     background: white;
 }
@@ -115,20 +115,20 @@ h1 span.free {
 
 @media (max-width: 768px) {
     .calculator-container {
-        width: calc(100% - 48px);
+        width: calc(100% - 40px); /* Increased width */
     }
 }
 
 @media (max-width: 576px) {
     .calculator-container {
-        width: calc(100% - 32px);
+        width: calc(100% - 24px); /* Increased width */
     }
 }
 
 .form-section {
     margin-bottom: 0;
     padding: 20px;
-    background-color: var(--section-color);
+    background-color: var(--section-color); /* Now using the slightly darker grey */
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -199,10 +199,7 @@ input:focus, select:focus, textarea:focus {
     background-color: #666666;
 }
 
-.btn-download {
-    background-color: #2ecc71;
-    margin-top: 1rem;
-}
+/* Removed .btn-download class */
 
 .result-box {
     background-color: var(--highlight-color);
@@ -210,6 +207,7 @@ input:focus, select:focus, textarea:focus {
     border-radius: 4px;
     margin-top: 1.5rem;
     border: 1px solid var(--border-color);
+    display: none; /* Hidden by default */
 }
 
 .result-row {
@@ -391,7 +389,7 @@ footer {
     }
     
     .calculator-container {
-        width: calc(100% - 32px);
+        width: calc(100% - 24px); /* Increased width on mobile */
     }
 }
 
@@ -412,9 +410,7 @@ footer {
         border: none;
     }
 
-    .btn-download {
-        display: none;
-    }
+    /* Removed .btn-download print rule */
 }
 </style>
 <body>
