@@ -320,30 +320,7 @@ footer {
     margin-top: 8px;
 }
 
-/* FAQ Section */
-.faq-item {
-    margin-bottom: 12px;
-}
 
-.faq-question {
-    padding: 16px 20px;
-    background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--border-color); /* Dark grey border */
-}
-
-.faq-answer {
-    padding: 16px 20px;
-    display: none;
-    background: #fafafa;
-    border-radius: 0 0 6px 6px;
-    border: 1px solid var(--border-color); /* Dark grey border */
-    border-top: none;
-}
 
 .intro-container {
     max-width: 800px;
@@ -443,48 +420,51 @@ footer {
     Easily calculate total international trade costs including shipping, duties, taxes, and profit margins with this tool designed specifically for exporters, importers, and logistics professionals.
 </p>
 
-            <!-- FAQ Dropdown Section -->
-            <div style="margin-top: 1.5rem;">
-                <!-- FAQ Item 1 -->
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3 style="font-size: 1rem; font-weight: 400; margin: 0; color: #000;">What costs does this calculator include?</h3>
-                        <span style="font-size: 1rem;">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p style="font-size: 0.9rem; line-height: 1.4; color: #666; margin: 0;">
-                            Product costs, shipping fees, insurance, customs duties, VAT/GST, handling charges, and other trade-related expenses.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3 style="font-size: 1rem; font-weight: 400; margin: 0; color: #000;">How accurate are the calculations?</h3>
-                        <span style="font-size: 1rem;">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p style="font-size: 0.9rem; line-height: 1.4; color: #666; margin: 0;">
-                            Provides estimates based on your inputs. For exact figures, consult with your logistics provider or customs broker.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3 style="font-size: 1rem; font-weight: 400; margin: 0; color: #000;">Can I download the cost & profit breakdown?</h3>
-                        <span style="font-size: 1rem;">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p style="font-size: 0.9rem; line-height: 1.4; color: #666; margin: 0;">
-                            Yes, you can download a detailed report in Word format with all calculations.
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <div style="margin-top: 1.5rem;">
+    <!-- FAQ Title -->
+    <h2 style="text-align: center; font-size: 1.3rem; font-weight: 500; margin-bottom: 1.5rem; color: #222222;">
+        Frequently Asked Questions
+    </h2>
+    
+    <!-- FAQ Item 1 -->
+    <div style="margin-bottom: 1.5rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 1.5rem;">
+        <div style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFAQ(this)">
+            <h3 style="font-size: 1rem; font-weight: 400; margin: 0; color: #000;">What costs does this calculator include?</h3>
+            <span style="font-size: 1rem;">+</span>
         </div>
+        <div style="display: none; padding-top: 0.8rem;">
+            <p style="font-size: 0.9rem; line-height: 1.4; color: #666; margin: 0;">
+                Product costs, shipping fees, insurance, customs duties, VAT/GST, handling charges, and other trade-related expenses.
+            </p>
+        </div>
+    </div>
+    
+    <!-- FAQ Item 2 -->
+    <div style="margin-bottom: 1.5rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 1.5rem;">
+        <div style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFAQ(this)">
+            <h3 style="font-size: 1rem; font-weight: 400; margin: 0; color: #000;">How accurate are the calculations?</h3>
+            <span style="font-size: 1rem;">+</span>
+        </div>
+        <div style="display: none; padding-top: 0.8rem;">
+            <p style="font-size: 0.9rem; line-height: 1.4; color: #666; margin: 0;">
+                Provides estimates based on your inputs. For exact figures, consult with your logistics provider or customs broker.
+            </p>
+        </div>
+    </div>
+    
+    <!-- FAQ Item 3 -->
+    <div style="margin-bottom: 1.5rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 1.5rem;">
+        <div style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFAQ(this)">
+            <h3 style="font-size: 1rem; font-weight: 400; margin: 0; color: #000;">Can I download the cost & profit breakdown?</h3>
+            <span style="font-size: 1rem;">+</span>
+        </div>
+        <div style="display: none; padding-top: 0.8rem;">
+            <p style="font-size: 0.9rem; line-height: 1.4; color: #666; margin: 0;">
+                Yes, you can download a detailed report in Word format with all calculations.
+            </p>
+        </div>
+    </div>
+</div>
         
 <script>
 function toggleFAQ(element) {
