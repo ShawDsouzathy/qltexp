@@ -458,23 +458,23 @@ footer {
 </div>
 <div style="
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 500px;
+    max-width: 300px;  <!-- Reduced from 500px -->
     width: 90%;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
     box-sizing: border-box;
 ">
     <div style="
         position: relative;
         width: 100%;
-        padding-bottom: 177.78%;
+        padding-bottom: 177.78%;  <!-- Maintains 16:9 aspect ratio -->
         background-color: transparent;
-        border-radius: 10px;
+        border-radius: 8px;  <!-- Slightly smaller radius -->
         overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  <!-- Lighter shadow -->
         cursor: pointer;
     ">
-        <!-- Video element with poster frame visible -->
+        <!-- Video element -->
         <video 
             id="myVideo"
             style="
@@ -484,26 +484,26 @@ footer {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                border-radius: 10px;
+                border-radius: 8px;
                 background-color: transparent;
             "
-            poster="tradecal-poster.jpg" <!-- Use actual first frame image -->
+            poster="tradecal-poster.jpg"
             loop
             playsinline
-            preload="metadata" <!-- Helps load first frame faster -->
+            preload="metadata"
         >
             <source src="tradecal.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
-        <!-- Modern play button overlay -->
+        <!-- Smaller play button -->
         <div id="playButton" style="
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
+            width: 40px;  <!-- Reduced from 60px -->
+            height: 40px;  <!-- Reduced from 60px -->
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(4px);
             border-radius: 50%;
@@ -511,10 +511,10 @@ footer {
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 1.5px solid rgba(255,255,255,0.3);  <!-- Thinner border -->
             pointer-events: none;
         ">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">  <!-- Smaller SVG -->
                 <path d="M8 5V19L19 12L8 5Z" fill="white" style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.5))"/>
             </svg>
         </div>
@@ -526,16 +526,13 @@ footer {
     const playButton = document.getElementById('playButton');
     let hideTimeout;
 
-    // Ensure first frame is shown immediately
     video.addEventListener('loadedmetadata', function() {
-        video.currentTime = 0.1; // Small offset to ensure frame loads
+        video.currentTime = 0.1;
     });
 
-    // Click to play/pause
     video.addEventListener('click', () => {
         if (video.paused) {
             video.play();
-            // Fade out play button after 1 second
             hideTimeout = setTimeout(() => {
                 playButton.style.opacity = '0';
                 playButton.style.transform = 'translate(-50%, -50%) scale(0.8)';
@@ -548,7 +545,6 @@ footer {
         }
     });
 
-    // Show play button when video ends
     video.addEventListener('ended', () => {
         playButton.style.opacity = '1';
         playButton.style.transform = 'translate(-50%, -50%) scale(1)';
