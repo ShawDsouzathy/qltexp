@@ -23,15 +23,15 @@
         }, 1000);
     </script>
 <style>
-   :root {
+ :root {
     --bg-color: #ffffff;
     --text-color: #333333;
-    --border-color: #d0d0d0;
+    --border-color: #e0e0e0; /* Lighter border color */
     --accent-color: #555555;
     --highlight-color: #ffffff;
     --profit-color: #2ecc71;
     --loss-color: #e74c3c;
-    --section-color: #f0f0f0; /* Changed to slightly darker grey */
+    --section-color: #f5f5f5; /* Lighter gray for form sections */
     --transition: all 0.2s ease;
 }
 
@@ -102,9 +102,15 @@ h1 span.free {
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
-    width: calc(100% - 48px); /* Increased width on mobile */
-    max-width: 1000px;
+    width: calc(100% - 48px); /* Increased width on all screens */
+    max-width: 1100px; /* Increased max-width */
     background: white;
+}
+
+@media (min-width: 1200px) {
+    .calculator-container {
+        width: calc(100% - 120px);
+    }
 }
 
 @media (min-width: 992px) {
@@ -121,14 +127,14 @@ h1 span.free {
 
 @media (max-width: 576px) {
     .calculator-container {
-        width: calc(100% - 24px); /* Increased width */
+        width: calc(100% - 24px); /* Increased width for mobile */
     }
 }
 
 .form-section {
     margin-bottom: 0;
     padding: 20px;
-    background-color: var(--section-color); /* Now using the slightly darker grey */
+    background-color: var(--section-color); /* Light gray background */
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -165,7 +171,7 @@ label {
 input, select, textarea {
     width: 100%;
     padding: 0.7rem 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Lighter border */
     border-radius: 4px;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -199,15 +205,12 @@ input:focus, select:focus, textarea:focus {
     background-color: #666666;
 }
 
-/* Removed .btn-download class */
-
 .result-box {
     background-color: var(--highlight-color);
     padding: 1.5rem;
     border-radius: 4px;
     margin-top: 1.5rem;
-    border: 1px solid var(--border-color);
-    display: none; /* Hidden by default */
+    border: 1px solid var(--border-color); /* Lighter border */
 }
 
 .result-row {
@@ -215,12 +218,12 @@ input:focus, select:focus, textarea:focus {
     justify-content: space-between;
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color); /* Lighter border */
 }
 
 .result-row.total {
     font-weight: 600;
-    border-bottom: 1px solid #b0b0b0;
+    border-bottom: 1px solid #c0c0c0;
 }
 
 .result-row.profit {
@@ -242,7 +245,7 @@ input:focus, select:focus, textarea:focus {
 .unit-toggle {
     display: flex;
     margin-bottom: 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Lighter border */
     border-radius: 4px;
     overflow: hidden;
     width: fit-content;
@@ -268,18 +271,18 @@ input:focus, select:focus, textarea:focus {
     border-collapse: collapse;
     margin: 1rem 0;
     font-size: 0.85rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Lighter border */
 }
 
 .items-table th, .items-table td {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Lighter border */
     padding: 0.6rem;
     text-align: left;
 }
 
 .items-table th {
     font-weight: 600;
-    background-color: #f0f0f0;
+    background-color: #f5f5f5; /* Lighter gray */
     color: #555555;
 }
 
@@ -302,14 +305,14 @@ input:focus, select:focus, textarea:focus {
 .form-actions {
     padding: 20px;
     text-align: center;
-    border-top: 1px solid var(--border-color);
-    background-color: #f0f0f0;
+    border-top: 1px solid var(--border-color); /* Lighter border */
+    background-color: #f5f5f5; /* Lighter gray */
 }
 
 footer {
     padding: 20px 0;
     text-align: center;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color); /* Lighter border */
     font-size: 0.75rem;
     color: #666666;
     background-color: var(--bg-color);
@@ -332,7 +335,7 @@ footer {
 }
 
 .intro-container {
-    max-width: 1000px;
+    max-width: 1100px; /* Increased max-width */
     margin: 20px auto;
     width: calc(100% - 64px);
     padding: 0;
@@ -357,7 +360,7 @@ footer {
     }
     
     .calculator-container {
-        max-width: 900px;
+        max-width: 1000px;
     }
 }
 
@@ -389,7 +392,7 @@ footer {
     }
     
     .calculator-container {
-        width: calc(100% - 24px); /* Increased width on mobile */
+        width: calc(100% - 24px); /* Increased width for mobile */
     }
 }
 
@@ -409,9 +412,7 @@ footer {
         width: 100%;
         border: none;
     }
-
-    /* Removed .btn-download print rule */
-}
+} 
 </style>
 <body>
     <header>
