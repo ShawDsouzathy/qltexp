@@ -456,11 +456,10 @@ footer {
     </div>
   </div>
 </div>
-
 <div style="
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 500px; /* Reduced from 900px */
-    width: 90%; /* Makes it responsive on smaller screens */
+    max-width: 500px;
+    width: 90%;
     margin: 0 auto;
     padding: 15px;
     box-sizing: border-box;
@@ -468,11 +467,11 @@ footer {
     <div style="
         position: relative;
         width: 100%;
-        padding-bottom: 177.78%; /* Maintains 9:16 aspect ratio */
+        padding-bottom: 177.78%;
         background-color: #000;
-        border-radius: 10px; /* Slightly smaller radius */
+        border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         cursor: pointer;
     ">
         <video 
@@ -487,43 +486,73 @@ footer {
                 border-radius: 10px;
             "
             poster="https://via.placeholder.com/900x1600"
-            autoplay
             loop
-            muted
-            playsinline /* Better mobile behavior */
+            playsinline
         >
             <source src="tradecal.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        
+        <!-- Sound toggle button (hidden by default) -->
+        <button id="soundBtn" style="
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 10;
+            display: none; /* Hidden until user interaction */
+        ">🔇</button>
     </div>
 </div>
 
 <script>
     const video = document.getElementById('myVideo');
-    const videoContainer = document.querySelector('div[style*="position: relative"]');
-    
-    // Verify video is muted (no sound)
-    video.volume = 0; // Ensures no sound
-    console.log('Video volume set to:', video.volume); // Should log 0
-    
-    // Click to play/pause
-    videoContainer.addEventListener('click', () => {
+    const soundBtn = document.getElementById('soundBtn');
+    let userInteracted = false;
+
+    // Handle first user interaction
+    document.addEventListener('click', () => {
+        if (!userInteracted) {
+            userInteracted = true;
+            video.play().then(() => {
+                video.muted = false;
+                soundBtn.style.display = 'block';
+                soundBtn.textContent = video.muted ? '🔇' : '🔊';
+            }).catch(e => console.log('Play failed:', e));
+        }
+    }, { once: true });
+
+    // Click to play/pause video
+    video.addEventListener('click', (e) => {
+        e.stopPropagation();
         if (video.paused) {
-            video.play().catch(e => console.log('Play failed:', e));
+            video.play();
         } else {
             video.pause();
         }
     });
-    
-    // Handle autoplay restrictions
-    document.addEventListener('DOMContentLoaded', () => {
-        video.play().catch(e => {
-            console.log('Autoplay blocked:', e);
-            // Optionally show a play button here if needed
-        });
-    });
-</script>      
 
+    // Sound toggle
+    soundBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.muted = !video.muted;
+        soundBtn.textContent = video.muted ? '🔇' : '🔊';
+    });
+
+    // Show sound button when video starts playing
+    video.addEventListener('play', () => {
+        if (userInteracted) {
+            soundBtn.style.display = 'block';
+        }
+    });
+</script>
 <div style="margin: 1.5rem auto 0; max-width: 800px; width: calc(100% - 32px); padding: 0 16px;">
     <!-- FAQ Title -->
     <h2 style="margin-top: 2.5rem; text-align: center; font-size: 1.3rem; font-weight: 500; margin-bottom: 2.5rem; color: #222222;">
