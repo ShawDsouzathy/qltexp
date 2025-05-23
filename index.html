@@ -467,7 +467,7 @@ footer {
     <div style="
         position: relative;
         width: 100%;
-        padding-bottom: 177.78%;  <!-- 16:9 aspect ratio -->
+        padding-bottom: 177.78%;
         background-color: transparent;
         border-radius: 8px;
         overflow: hidden;
@@ -496,7 +496,7 @@ footer {
             Your browser does not support the video tag.
         </video>
         
-        <!-- Play button with perfect circle -->
+        <!-- Improved play button -->
         <div id="playButton" style="
             position: absolute;
             top: 50%;
@@ -504,18 +504,19 @@ footer {
             transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
-            border-radius: 50%;  <!-- Perfect circle -->
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            border: 1.5px solid rgba(255,255,255,0.3);
+            border: none;
             pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         ">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M8 5V19L19 12L8 5Z" fill="white" style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.5))"/>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="margin-left: 4px;">
+                <path d="M8 5V19L19 12L8 5Z" fill="white"/>
             </svg>
         </div>
     </div>
@@ -535,8 +536,8 @@ footer {
             video.play();
             hideTimeout = setTimeout(() => {
                 playButton.style.opacity = '0';
-                playButton.style.transform = 'translate(-50%, -50%) scale(0.8)';
-            }, 1000);
+                playButton.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            }, 500);
         } else {
             video.pause();
             clearTimeout(hideTimeout);
