@@ -486,42 +486,63 @@ footer {
                 border-radius: 10px;
             "
             poster="https://via.placeholder.com/900x1600"
-            autoplay
             loop
             playsinline
-            muted
         >
             <source src="tradecal.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        
+        <!-- Modern play button -->
+        <div id="playButton" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        ">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-left: 4px;">
+                <path d="M8 5V19L19 12L8 5Z" fill="white"/>
+            </svg>
+        </div>
     </div>
 </div>
 
 <script>
     const video = document.getElementById('myVideo');
-    
-    // Try to unmute after a small delay (helps with autoplay)
-    setTimeout(() => {
-        video.muted = false;
-    }, 1000);
+    const playButton = document.getElementById('playButton');
+    let hideTimeout;
 
-    // Click to play/pause (will unmute if needed)
+    // Click to play/pause
     video.addEventListener('click', () => {
         if (video.paused) {
-            video.play().then(() => {
-                video.muted = false;
-            });
+            video.play();
+            // Fade out play button after 1 second
+            hideTimeout = setTimeout(() => {
+                playButton.style.opacity = '0';
+            }, 1000);
         } else {
             video.pause();
+            clearTimeout(hideTimeout);
+            playButton.style.opacity = '1';
         }
     });
 
-    // Special handling for Safari
-    document.addEventListener('click', () => {
-        video.play().then(() => {
-            video.muted = false;
-        });
-    }, { once: true });
+    // Show play button when video ends
+    video.addEventListener('ended', () => {
+        playButton.style.opacity = '1';
+    });
+
+    // Initial state
+    playButton.style.opacity = '1';
 </script>
 <div style="margin: 1.5rem auto 0; max-width: 800px; width: calc(100% - 32px); padding: 0 16px;">
     <!-- FAQ Title -->
