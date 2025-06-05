@@ -370,7 +370,8 @@
                 <p>
                     We help businesses around the world source quality products directly from verified Indian manufacturers trying to beat the price of your current supplier.
                 </p>
-                <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn cta-button">Get Quote</a>
+            <a href="#quote-form" class="btn cta-button">Get Quote</a>
+
             </div>
         </section>
         
@@ -597,6 +598,73 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="do.png" class="marquee-img" alt="Brand 2">
             </div>
         </div>
+<section id="quote-form" class="container" style="padding: 40px 20px;">
+  <h2 style="text-align:center; margin-bottom: 20px;">Get Quote</h2>
+  
+  <form id="exportForm" style="
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+  ">
+    <label style="font-size: 1rem; color: #222;">Industry</label>
+    <select name="industry" required style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;">
+      <option value="">Select Industry</option>
+      <option value="Textiles and garments">Textiles and garments</option>
+      <option value="Home Decor and Handicrafts">Home Decor and Handicrafts</option>
+      <option value="Leather Products">Leather Products</option>
+      <option value="Imitation Jewellery">Imitation Jewellery</option>
+    </select>
+
+    <label style="font-size: 1rem; color: #222;">Product Type, Quantity & Budget</label>
+    <input type="text" name="quantity_budget" required placeholder="E.g. Leather Wallet, 500 units, $650"
+      style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;" />
+
+    <label style="font-size: 1rem; color: #222;">Phone Number</label>
+    <input type="tel" name="phone" required placeholder="Enter your phone number"
+      style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;" />
+
+   <button type="submit" class="btn" style="margin-top: 10px; align-self: center;">Submit</button>
+  </form>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    #quote-form form label,
+    #quote-form form input,
+    #quote-form form select,
+    #quote-form form button {
+      font-size: 0.85rem !important;
+    }
+
+    #quote-form h2 {
+      font-size: 1.5rem !important; /* same as site-wide h2 */
+    }
+  }
+</style>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycby6Z42hfyBBNCxiQvCmPIBdjb1ZrVfItvJOvPZQMTuUxOe2kJVNmKCTODXWFiu1BPg/exec';
+  const form = document.getElementById('exportForm');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        alert("Your request has been Submitted");
+        form.reset(); // clear the form
+      })
+      .catch(error => {
+        alert("There was an error submitting your form. Please try again.");
+        console.error('Error!', error.message);
+      });
+  });
+</script>
 
     <footer>
         <div class="container">
