@@ -598,8 +598,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="do.png" class="marquee-img" alt="Brand 2">
             </div>
         </div>
+<!-- Decorative curved border line -->
+<!-- Quote Form Section -->
 <section id="quote-form" class="container" style="padding: 40px 20px;">
-  <h2 style="text-align:center; margin-bottom: 20px;">Get Quote</h2>
+  <h2 style="text-align:center; margin-bottom: 20px; font-size: 1.8rem;">Get Quote</h2>
   
   <form id="exportForm" style="
     width: 100%;
@@ -628,10 +630,11 @@ document.addEventListener('DOMContentLoaded', function() {
     <input type="tel" name="phone" required placeholder="Enter your phone number"
       style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;" />
 
-   <button type="submit" class="btn" style="margin-top: 10px; align-self: center;">Submit</button>
+    <button type="submit" class="btn" style="margin-top: 10px; align-self: center;">Submit</button>
   </form>
 </section>
 
+<!-- Responsive adjustment -->
 <style>
   @media (max-width: 768px) {
     #quote-form form label,
@@ -640,13 +643,13 @@ document.addEventListener('DOMContentLoaded', function() {
     #quote-form form button {
       font-size: 0.85rem !important;
     }
-
     #quote-form h2 {
-      font-size: 1.5rem !important; /* same as site-wide h2 */
+      font-size: 1.5rem !important;
     }
   }
 </style>
 
+<!-- Form submission script -->
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycby6Z42hfyBBNCxiQvCmPIBdjb1ZrVfItvJOvPZQMTuUxOe2kJVNmKCTODXWFiu1BPg/exec';
   const form = document.getElementById('exportForm');
@@ -657,7 +660,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then(response => {
         alert("Your request has been Submitted");
-        form.reset(); // clear the form
+        form.reset();
       })
       .catch(error => {
         alert("There was an error submitting your form. Please try again.");
