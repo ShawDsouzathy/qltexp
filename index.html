@@ -598,44 +598,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="do.png" class="marquee-img" alt="Brand 2">
             </div>
         </div>
-<!-- Decorative curved border line -->
-<!-- Quote Form Section -->
- <!-- Decorative responsive horizontal line with downward-curved ends -->
-<!-- Decorative responsive line with visible curved ends -->
-<!-- Curved line like your screenshot -->
 
 <section id="quote-form" class="container" style="padding: 40px 20px;">
-  <h2 style="text-align:center; margin-bottom: 20px; font-size: 1.8rem;">Get Quote</h2>
-  
-  <form id="exportForm" style="
+ 
+
+  <div style="
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
+    max-width: 540px;
     width: 100%;
-    max-width: 500px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
+    padding: 20px;
     box-sizing: border-box;
   ">
-    <label style="font-size: 1rem; color: #222;">Industry</label>
-    <select name="industry" required style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;">
-      <option value="">Select Industry</option>
-      <option value="Textiles and garments">Textiles and garments</option>
-      <option value="Home Decor and Handicrafts">Home Decor and Handicrafts</option>
-      <option value="Leather Products">Leather Products</option>
-      <option value="Imitation Jewellery">Imitation Jewellery</option>
-    </select>
+    <form id="exportForm" style="
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    ">
+    
+      <label style="font-size: 1rem; color: #222;">Product Industry</label>
+      <select name="industry" required style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;">
+        <option value="">Select Industry</option>
+        <option value="Textiles and garments">Textiles and garments</option>
+        <option value="Home Decor and Handicrafts">Home Decor and Handicrafts</option>
+        <option value="Leather Products">Leather Products</option>
+        <option value="Imitation Jewellery">Imitation Jewellery</option>
+      </select>
 
-    <label style="font-size: 1rem; color: #222;">Product Type, Quantity & Budget</label>
-    <input type="text" name="quantity_budget" required placeholder="E.g. Leather Wallet, 500 units, $650"
-      style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;" />
+      <label style="font-size: 1rem; color: #222;">Product Type, Quantity & Budget</label>
+      <input type="text" name="quantity_budget" required placeholder="E.g. Leather Wallet, 500 units, $650"
+        style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;" />
 
-    <label style="font-size: 1rem; color: #222;">Phone Number</label>
-    <input type="tel" name="phone" required placeholder="Enter your phone number"
-      style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;" />
+      <label style="font-size: 1rem; color: #222;">Phone Number</label>
+      <input type="tel" name="phone" required placeholder="Enter your phone number"
+        style="padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 100%;" />
 
-    <button type="submit" class="btn" style="margin-top: 10px; align-self: center;">Submit</button>
-  </form>
+      <button type="submit" class="btn" style="margin-top: 10px; align-self: center;">Submit</button>
+    </form>
+  </div>
 </section>
 
 <!-- Responsive adjustment -->
