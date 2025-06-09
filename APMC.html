@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APMC Supplier Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    label {
+      margin-top: 15px;
+      display: block;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background: #222;
+      color: #fff;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>APMC Supplier Data Form</h2>
+
+  <form id="supplierForm">
+    <label>Supplier Name</label>
+    <input type="text" name="supplier_name" required>
+
+    <label>Product Type</label>
+    <input type="text" name="product_type" required>
+
+    <label>Phone</label>
+    <input type="tel" name="phone" required>
+
+    <label>Years</label>
+    <input type="text" name="whatsapp">
+
+    <label>Plot Number</label>
+    <input type="text" name="plot_number">
+
+    <label>Capacity Per Day</label>
+    <input type="text" name="capacity">
+
+    <label>Comments</label>
+    <textarea name="comments" rows="3"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxoF6xAmQ7v5c2qjRh2BFhDg1qd8q15qb0pBZXW23WvvVYk8dh1cJ-xOjTMmH6DGM4/exec";
+    const form = document.getElementById("supplierForm");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          alert("Supplier data submitted successfully!");
+          form.reset();
+        })
+        .catch(error => {
+          alert("Error submitting data");
+          console.error(error);
+        });
+    });
+  </script>
+
+</body>
+</html>
