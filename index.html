@@ -363,7 +363,7 @@
     </header>
     
     <main>
-        <section id="qtexportise-chatbot" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
+  <section id="qtexportise-chatbot" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
     <!-- Chat Icon -->
     <div id="chatbot-icon" style="width: 60px; height: 60px; background-color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: transform 0.2s ease;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: #fff;">
@@ -408,7 +408,7 @@
         }
         #chatbot-messages::-webkit-scrollbar { display: none; }
         #chatbot-icon:hover { transform: scale(1.1); }
-        .form-link { color: #5a5a5a; font-weight: 600; text-decoration: underline; cursor: pointer; }
+        .form-link { color: #5a5a5a !important; font-weight: 600 !important; text-decoration: underline !important; }
     </style>
 
     <script>
@@ -424,14 +424,16 @@
         const topFade = document.getElementById('top-fade');
         const bottomFade = document.getElementById('bottom-fade');
 
-        messagesContainer.addEventListener('scroll', function() {
+        function updateFades() {
             // Top fade - only show if scrolled down
             topFade.style.opacity = messagesContainer.scrollTop > 10 ? '1' : '0';
             
             // Bottom fade - only show if not at bottom
             const atBottom = messagesContainer.scrollHeight - messagesContainer.scrollTop <= messagesContainer.clientHeight + 5;
             bottomFade.style.opacity = atBottom ? '0' : '1';
-        });
+        }
+
+        messagesContainer.addEventListener('scroll', updateFades);
 
         // Chat logic
         function selectOption(option) {
@@ -452,7 +454,7 @@
                 let response = "";
                 
                 if (option === "I want to source from India") {
-                    response = `Excellent, we help businesses to source raw material or finished product from India. Click on the <a href="#quote-form" onclick="scrollToForm()">form</span> and fill the details required and our team would reach out to you soon.`;
+                    response = `Excellent, we help businesses to source raw material or finished product from India. Click on the <span class="form-link" onclick="event.stopPropagation(); document.getElementById('chatbot-container').style.opacity='0'; window.location.hash='quote-form';">form</span> and fill the details required and our team would reach out to you soon.`;
                 } else {
                     response = "QtExportise is a sourcing and export service company based in India, dedicated to connecting global buyers with high-quality Indian products. We cater to a wide range of industries, with a strong focus on garments and textiles, handicrafts and home decor, leather goods, and imitation jewellery. Our team works closely with verified manufacturers to ensure that every product meets international standards of quality and compliance. From supplier coordination to packaging, documentation, and logistics, we provide complete end-to-end support for a smooth and reliable export experience.";
                 }
@@ -476,10 +478,7 @@
                 
                 // Scroll to bottom with fade detection
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
-                setTimeout(() => {
-                    const atBottom = messagesContainer.scrollHeight - messagesContainer.scrollTop <= messagesContainer.clientHeight + 5;
-                    bottomFade.style.opacity = atBottom ? '0' : '1';
-                }, 300);
+                setTimeout(updateFades, 300);
             }, 200);
         }
 
@@ -498,11 +497,6 @@
             bottomFade.style.opacity = '0';
         }
 
-        function scrollToForm() {
-            // Implement your form scrolling logic here
-            console.log("Scroll to form section");
-        }
-
         // Make chat icon stay fixed when scrolling
         window.addEventListener('scroll', function() {
             const chatbotSection = document.getElementById('qtexportise-chatbot');
@@ -510,6 +504,9 @@
             chatbotSection.style.bottom = '30px';
             chatbotSection.style.right = '30px';
         });
+
+        // Initialize
+        updateFades();
     </script>
 </section>
         <section class="hero">
