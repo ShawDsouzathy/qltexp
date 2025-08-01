@@ -382,7 +382,130 @@
             </div>
         </section>
         
+          <div style="
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 300px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+">
+    <div style="
+        position: relative;
+        width: 100%;
+        padding-bottom: 177.78%;
+        background-color: transparent;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    ">
+        <!-- Video element -->
+        <video 
+            id="myVideo"
+            style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+                background-color: transparent;
+                margin-bottom: 1rem;
+            "
+
+            loop
+            playsinline
+            preload="metadata"
+        >
+            <source src="qltexp.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Modern play button -->
+        <div id="playButton" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            opacity: 1;
+        ">
+            <div style="
+                width: 24px;
+                height: 24px;
+                position: relative;
+                left: 2px;
+            ">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                    <path d="M8 5V19L19 12L8 5Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById('myVideo');
+    const playButton = document.getElementById('playButton');
+    let hideTimeout;
+
+    video.addEventListener('loadedmetadata', function() {
+        video.currentTime = 0.1;
+    });
+
+    video.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playButton.style.opacity = '0';
+            playButton.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        } else {
+            video.pause();
+            clearTimeout(hideTimeout);
+            playButton.style.opacity = '1';
+            playButton.style.transform = 'translate(-50%, -50%) scale(1)';
+        }
+    });
+
+    video.addEventListener('play', () => {
+        playButton.style.opacity = '0';
+        playButton.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    });
+
+    video.addEventListener('pause', () => {
+        playButton.style.opacity = '1';
+        playButton.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
+    // Show play button when hovering the container
+    const container = video.parentElement;
+    container.addEventListener('mouseenter', () => {
+        if (!video.paused) {
+            playButton.style.opacity = '0.8';
+            playButton.style.transform = 'translate(-50%, -50%) scale(1.05)';
+        }
+    });
     
+    container.addEventListener('mouseleave', () => {
+        if (!video.paused) {
+            playButton.style.opacity = '0';
+            playButton.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        }
+    });
+</script>
+
+ 
  
       
         <div class="faq-container">
@@ -436,8 +559,7 @@
         <section class="tradecalc-section">
             <div class="container">
                 <h2>TradeCalc Tool</h2>
-               <div class="video-container" style="
-  width: 80%;
+               <div class="video-container" style= width: 80%;
   max-width: 600px;
   margin: 30px auto 40px; /* Top: 20px, Bottom: 40px, Left/Right: auto */
   border-radius: 16px;
