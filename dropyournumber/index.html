@@ -29,11 +29,12 @@
     .logo {
       width: 30px; /* adjust size if needed */
       margin-bottom: px;
+      opacity: 70%;
     }
 
     h1 {
       font-size: 2.4rem;
-      font-weight: 300;
+      font-weight: 200;
       color: #545454;
       letter-spacing: -1px; /* tighter spacing */
       margin-bottom: 18px;
@@ -116,7 +117,7 @@
           method: "POST",
           body: data
         });
-        msg.textContent = "Number submitted successfully!";
+        msg.textContent = "Number submitted successfully.";
         form.reset();
       } catch (err) {
         msg.textContent = "Failed, try again.";
