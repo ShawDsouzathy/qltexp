@@ -1,128 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shawn Trevor Dsouza — WebBuilder | AiTinkerer | MetaAdsCampaigner</title>
-  <meta name="description" content="Websites AI automation and Meta Ads campaigns by Shawn Trevor Dsouza — ExImpreneur and Founder of QltExportise" />
-  <meta property="og:title" content="Shawn Trevor Dsouza" />
-  <meta property="og:description" content="WebBuilder • AiTinkerer • MetaAdsCampaigner — ExImpreneur & Founder of QltExportise" />
-  <meta property="og:type" content="website" />
-  <meta name="color-scheme" content="light" />
-
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drop Your Number</title>
+  
+  <!-- Google Font: Inter Tight -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#ffffff;
-      --fg:#0b0c0f;
-      --muted:#5c6270;
-      --border:#e9ecf1;
-      --accent:#0f172a; /* deep slate */
+    body {
+      background: #000;
+      font-family: 'Inter Tight', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background:var(--bg);
-      color:var(--fg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
     }
-    .container{max-width:960px;margin:0 auto;padding:24px}
-    header{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-    .brand{font-weight:800;letter-spacing:-0.02em}
-    .tag{font-size:.9rem;color:var(--muted)}
 
-    .hero{padding:72px 0 32px;border-bottom:1px solid var(--border)}
-    .title{font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;letter-spacing:-0.02em;margin:0 0 12px;font-weight:800}
-    .subtitle{font-size:clamp(1rem,2.4vw,1.15rem);color:var(--muted);margin:0}
+    .logo {
+      width: 30px; /* adjust size if needed */
+      margin-bottom: px;
+    }
 
-    .pillset{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
-    .pill{border:1px solid var(--border);padding:10px 14px;border-radius:999px;font-size:.95rem}
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: #545454;
+      letter-spacing: -1px; /* tighter spacing */
+      margin-bottom: 18px;
+    }
 
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
-    .btn{appearance:none;border:1px solid var(--border);background:#fff;color:var(--fg);padding:12px 16px;border-radius:12px;font-weight:600;text-decoration:none}
-    .btn.primary{border-color:#0f172a;background:#0f172a;color:#fff}
+    form {
+      display: flex;
+      background: #0f0f0f;
+      border-radius: 30px;
+      padding: 5px 10px;
+      align-items: center;
+    }
 
-    section{padding:40px 0;border-bottom:1px solid var(--border)}
-    h2{font-size:1.25rem;margin:0 0 12px}
-    p{margin:0 0 10px;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;border:1px solid var(--border);border-radius:16px;padding:16px}
-    @media(min-width:720px){.card{grid-column:span 4}}
+    input[type="tel"] {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 12px;
+      font-size: 1rem;
+      color: #545454;
+    }
 
-    footer{padding:28px 0;font-size:.9rem;color:var(--muted)}
-    .small{font-size:.95rem;color:var(--muted)}
+    input::placeholder {
+      color: #232323;
+    }
+
+    button {
+      border: none;
+      background: transparent;
+      color: #545454;
+      letter-spacing: -1px;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0 12px;
+    }
+
+    #msg {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #545454;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      input[type="tel"] {
+        font-size: 0.9rem;
+      }
+      button {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <div>
-        <div class="brand">shwndsoza</div>
-        <div class="tag">WebBuilder • AiTinkerer • MetaAdsCampaigner</div>
-      </div>
-      <nav class="small"><a href="#about" style="color:inherit;text-decoration:none">About</a> &nbsp; <a href="#work" style="color:inherit;text-decoration:none">Work</a> &nbsp; <a href="#contact" style="color:inherit;text-decoration:none">Contact</a></nav>
-    </header>
+    <!-- Your Logo -->
+    <img src="222.png" alt="Logo" class="logo">
 
-    <section class="hero" id="top">
-      <h1 class="title">I am Shawn Trevor Dsouza</h1>
-      <p class="subtitle">WebBuilder • AiTinkerer • MetaAdsCampaigner</p>
-      <p class="subtitle">ExImpreneur & Founder of @qltexportise</p>
-      <div class="pillset" aria-label="Highlights">
-        <div class="pill">Websites built for speed and conversions</div>
-        <div class="pill">AI automations that save hours</div>
-        <div class="pill">Meta ads that scale</div>
-      </div>
-      <div class="cta">
-        <a class="btn primary" href="#about">Know more about me here</a>
-        <a class="btn" href="#contact">Start a project</a>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>I build clean high-performance websites set up AI workflows that remove busywork and run Meta advertising that drives measurable growth. I keep things simple minimal and outcome focused</p>
-      <p class="small">Based in India working with clients globally</p>
-    </section>
-
-    <section id="work">
-      <h2>What I do</h2>
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0 0 6px">Website building</h3>
-          <p>Modern responsive sites landing pages and ecommerce with fast load and clear structure</p>
-        </div>
-        <div class="card">
-          <h3 style="margin:0 0 6px">AI systems</h3>
-          <p>Automation of leads follow ups content and reporting using reliable tools</p>
-        </div>
-        <div class="card">
-          <h3 style="margin:0 0 6px">Meta ads</h3>
-          <p>Audience setup creative testing and conversion tracking to scale campaigns</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:hello@qltexp.in" style="color:inherit">hello@qltexp.in</a></p>
-      <p>Instagram: <a href="https://instagram.com/shwndsoza" style="color:inherit">@shwndsoza</a></p>
-      <p>Business: <a href="https://instagram.com/qltexportise" style="color:inherit">@qltexportise</a></p>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> Shawn Trevor Dsouza</div>
-    </footer>
+    <h1>Drop your Number here</h1>
+    
+    <form id="leadForm">
+      <input type="tel" name="phone" placeholder="Ph.No" required>
+      <button type="submit"><i>Send</i></button>
+    </form>
+    <p id="msg"></p>
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear()
+    const form = document.getElementById("leadForm");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbwmuMhHy4eiRHLHq_dAfBMuiKh26trZjoFKdBO6hevfw4PSfHG2yTCXsxb-Lvpuslne/exec", {
+          method: "POST",
+          body: data
+        });
+        msg.textContent = "Number submitted successfully!";
+        form.reset();
+      } catch (err) {
+        msg.textContent = "Failed, try again.";
+      }
+    });
   </script>
 </body>
 </html>
+
+
+
+
