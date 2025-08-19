@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exportise</title>
+  <title>xportised</title>
   <link rel="icon" href="322.png" type="image/png">
   <!-- Google Font: Inter Tight -->
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
@@ -26,10 +26,23 @@
       padding: 20px;
     }
 
-    .logo {
-      width: 30px; /* adjust size if needed */
-      opacity: 50%;
-    }
+  .logo {
+  width: 30px;
+  animation: fadeBreath 3s ease-in-out infinite;
+}
+
+@keyframes fadeBreath {
+  0% {
+    opacity: 0.3; /* 30% */
+  }
+  50% {
+    opacity: 1;   /* 100% */
+  }
+  100% {
+    opacity: 0.3; /* back to 30% */
+  }
+}
+
 
  h1 {
   font-size: 2.5rem;
@@ -41,7 +54,7 @@
   background: linear-gradient(
     90deg,
     #545454 0%,
-    #a1a1a1 50%,
+    #606060 50%,
     #545454 100%
   );
   background-size: 200% auto;
