@@ -1,229 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QltExportise</title>
-    <link rel="icon" href="212.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                },
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-Xportised</title>
+  <link rel="icon" href="323.png" type="image/png">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #000;
+      font-family: 'Inter Tight', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .center-image {
+      width: 100%;
+      max-width: 1080px;
+      aspect-ratio: 1/1; /* Keeps square ratio */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Image stays full and centered */
+    }
+  </style>
 </head>
-<body class="bg-white">
-    <!-- Logo Section --><!-- Logo Section -->
-<div class="flex justify-center pt-6 ">
-    <img src="212.png" alt="QltExportise Logo" class="h-12 w-auto">
-</div>
-
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden">
-        <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-6 z-10 relative">
-            <!-- Announcement badge -->
-            <a href="https://wa.me/917045632656?text=Hello%20QltExportise,%20I%20found%20you%20through%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20export%20services" class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-[#36C237] bg-[#DAFFDA] rounded-full transition-colors duration-200">
-                <span class="text-xs bg-[#36C237] rounded-full text-white px-4 py-1.5 me-3"><i>WA</i></span> 
-                <span class="text-sm font-medium"><I>Whats</I>App your way to success</span> 
-                <svg class="w-2.5 h-2.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-            </a>
-            
-            <!-- Main heading -->
-            <h1 class="mb-4 text-4xl font-medium tracking-tight leading-none text-[#1B1B1B] md:text-5xl lg:text-6xl">
-                We Export <i>W</i>orldwide from India
-            </h1>
-            
-            <!-- Subheading -->
-            <p class="mb-8 text-lg font-normal text-gray-600 lg:text-xl max-w-3xl mx-auto">
-               We help businesses worldwide source top quality products at <i>30%-50% less price</i> than thier current supplier straight from verified Indian manufacturers while making your current supplier question all their life choices.
-            </p>
-            
-      
-<!-- Phone Number Form with Bottom Margin -->
-<div class="mb-10"> <!-- Added margin-bottom here (8 = 2rem) -->
-    <form id="phoneForm" class="w-full max-w-md mx-auto">
-        <label for="phone-number" class="mb-2 text-sm font-medium text-gray-900 sr-only">Phone Number</label>
-        <div class="relative">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-            </div>
-            <input type="tel" id="phone-number" name="phone" class="block w-full p-4 pl-10 text-sm text-gray-500 border border-gray-950 rounded-lg bg-white" placeholder="Enter Phone No." required pattern="[0-9]{10,14}" title="Please enter a valid phone number (10-14 digits)" />
-            <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-[#36C237]  font-medium rounded-lg text-sm px-4 py-2 transition-colors duration-200">
-                Book <I>Free</I> Call
-            </button>
-        </div>
-    </form>
-</div>
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwmuMhHy4eiRHLHq_dAfBMuiKh26trZjoFKdBO6hevfw4PSfHG2yTCXsxb-Lvpuslne/exec'; // Replace with your actual URL
-    const form = document.getElementById('phoneForm');
-    
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        
-        // Show loading state
-        const submitBtn = form.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Sending...';
-        
-        fetch(scriptURL, { 
-            method: 'POST', 
-            body: new FormData(form)
-        })
-        .then(response => {
-            alert('Thank you, We will call you shortly within 24 Hours.');
-            form.reset();
-            submitBtn.innerHTML = 'Book Free Call';
-            submitBtn.disabled = false;
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            alert('Something went wrong. Please try again.');
-            submitBtn.innerHTML = 'Book Free Call';
-            submitBtn.disabled = false;
-        });
-    });
-</script>
-
-    <!-- Industries Section -->
-    <section class=" mb-4">
-        <div class="container mx-auto py-6  max-w-7xl">
-            <div class="flex flex-col items-center gap-8">
-                <div class="text-center">
-                    <h3 class="text-2xl font-regular text-gray-500 ">The 3 Step <i>Exp</i>ort Process:</h3>
-                </div>
-  
-        </div>
-    </section>
-<ol class="items-center sm:flex">
-    <li class="relative mb-6 sm:mb-0">
-        <div class="flex items-center">
-         <div class="z-10 flex items-center justify-center w-6 h-6 bg-green-100 rounded-full ring-0 ring-white sm:ring-8 shrink-0 mx-auto sm:mx-0">
-  <svg class="w-3 h-3 text-[#36C237]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-   <path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/>
-  <path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.391l-4.064-3.696z"/>
-</svg>
-  </svg>
-</div>
-
-
-     <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-        </div>
-        <div class="mt-3 sm:pe-8">
-            <h3 class="text-lg font-medium text-[#36C237]">Connect with a <i>Free Call</i></h3>
-            <time class="block mb-2 text-sm font-normal leading-none text-[#8AFB93]"><i>Step 1 of Export Process</i></time>
-            <p class="text-base font-normal text-gray-400">Give us ten minutes of yours and we'll help you save thousands.</p>
-        </div>
-    </li>
-    <li class="relative mb-6 sm:mb-0">
-        <div class="flex items-center">
-            <div class="z-10 flex items-center justify-center w-6 h-6 bg-red-100 rounded-full ring-0 ring-white sm:ring-8 shrink-0 mx-auto sm:mx-0 mt-2 sm:mt-0">
-  <svg class="w-3 h-3 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-     <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
-  <path d="M8 8h8v2H8zm0 4h8v2H8z"/>
-     </svg>
-</div>
-
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-        </div>
-        <div class="mt-3 sm:pe-8">
-            <h3 class="text-lg font-medium text-red-500">Create Export <i>Plan</i></h3>
-            <time class="block mb-2 text-sm font-normal leading-none text-red-300"><i>Step 2 of Export Process</i></time>
-            <p class="text-base font-normal text-gray-400">After our call we’ll craft your export plan so simple you’ll wonder why no one told you sooner.</p>
-        </div>
-    </li>
-    <li class="relative mb-6 sm:mb-0">
-        <div class="flex items-center">
-      <div class="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white sm:ring-8 shrink-0 mx-auto sm:mx-0 mt-2 sm:mt-0">
-  <svg class="w-3 h-3 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-  <path d="M18 18.5c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5-1.5.7-1.5 1.5.7 1.5 1.5 1.5zm1.5-9H17V12h4.46L19.5 9.5zM6 18.5c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5-1.5.7-1.5 1.5.7 1.5 1.5 1.5zM20 8l3 4v5h-2c0 1.7-1.3 3-3 3s-3-1.3-3-3h-6c0 1.7-1.3 3-3 3s-3-1.3-3-3H4c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14v5h3z"/>
-  </svg>
-</div>
-
-
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-        </div>
-        <div class="mt-3 sm:pe-8">
-            <h3 class="text-lg font-medium text-blue-500"><i>Execution</i> as Planned</h3>
-            <time class="block mb-2 text-sm font-normal leading-none text-blue-300"><i>Step 3 of Export Process</i></time>
-            <p class="text-base font-normal text-gray-400">We handle it all from paperwork to port so you can just sit back and wait for your goods.</p>
-        </div>
-    </li>
-</ol>
-<div class="max-w-5xl mx-auto py-12">
-    <div class="border border-red-200 rounded-lg p-6 lg:flex lg:items-center lg:justify-between bg-red-50 shadow-sm">
-        <!-- Heading & Subheading -->
-        <h2 class="text-2xl text-gray-800 sm:text-3xl lg:text-left text-center lg:pr-20"> <!-- increased size -->
-            <span class="block text-red-500 font-medium tracking-tight">Are you a <i>Manu</i> facturer?</span>
-            <span class="block text-[#FF7878] pt-2 tracking-tight text-lg">
-        Turn your factory into a global sensation by joining our suppliers community and let international buyers come knocking while you skip the export hassles.
-            </span>
-        </h2>
-
-        <!-- Avatar Group + Button -->
-        <div class="mt-4 flex flex-col items-center lg:flex-shrink-0 lg:mt-0 lg:ml-6 lg:items-end">
-            <!-- Avatar Row -->
-            <div class="flex -space-x-4 rtl:space-x-reverse mb-3">
-                <img class="w-10 h-10 border-2 border-red-500 rounded-full" src="1.png" alt="">
-                <img class="w-10 h-10 border-2 border-red-500 rounded-full" src="2.png" alt="">
-                <img class="w-10 h-10 border-2 border-red-500 rounded-full" src="3.png" alt="">
-                <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-red-500 border-2 border-red-500 rounded-full hover:bg-red-500" >+75</a>
-            </div>
-            <!-- Join Button -->
-            <div class="inline-flex rounded-md">
-                <a class="bg-red-500 border border-transparent rounded-md py-3 px-6 inline-flex items-center justify-center text-base font-medium text-white hover:bg-red-400"
-                    href="https://chat.whatsapp.com/KhaWyQLq8eiKCY2apSzE6b?mode=ac_t">
-                    <i>J</i>oin <i>N</i>ow
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="flex justify-center ">
-  <img src="msme.png" 
-       alt="MSME Logo"
-       class="w-12 sm:w-16 md:w-20 lg:w-24 opacity-60 hover:opacity-100 transition-opacity duration-300"
-       loading="lazy">
-     
-</div>
-
-    <!-- Footer -->
-  <footer class="bg-white py-5 px-5">
-    <div class="container mx-auto px-4 max-w-7xl">
-        <div class="flex flex-col md:flex-row items-center justify-between">
-            <!-- Copyright -->
-            <span class="text-sm text-gray-500 mb-4 md:mb-0">
-                © 2025 QltExp. All Rights Reserved.
-            </span>
-
-            <!-- Social Links -->
-            <div class="flex items-center space-x-4">
-                <a href="https://www.instagram.com/qltexportise" target="_blank" class="text-xs text-gray-500 hover:text-pink-600 underline">
-                    Instagram
-                </a>
-               <a href="https://wa.me/917045632656?text=Hello%20QltExportise,%20I%20found%20you%20through%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20export%20services" 
-                   target="_blank" 
-                   class="text-xs text-gray-500 hover:text-green-600 underline">
-                    WhatsApp
-                </a>
-                <a href="https://www.linkedin.com/in/shwndsoza" target="_blank" class="text-xs text-gray-500 hover:text-blue-700 underline">
-                    LinkedIn
-                </a>
-            </div>
-        </div>
-    </div>
-
-</footer>
+<body>
+  <div class="center-image">
+    <img src="322.png" alt="Centered Image">
+  </div>
 </body>
 </html>
