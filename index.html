@@ -3,41 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>e-Xportised</title>
-  <link rel="icon" href="323.png" type="image/png">
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
-
+  <title>Centered Image</title>
   <style>
     body {
       background: #000;
-      font-family: 'Inter Tight', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
-    }
-
-    .center-image {
-      width: 100%;
-      max-width: 1080px;
-      aspect-ratio: 1/1; /* Keeps square ratio */
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden; /* removes scroll */
     }
 
     .center-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Image stays full and centered */
+      width: 250px;   /* adjust size */
+      height: auto;
+      display: block;
     }
   </style>
 </head>
 <body>
   <div class="center-image">
-    <img src="322.png" alt="Centered Image">
+    <img src="322.png" alt="Centered Logo">
   </div>
 </body>
 </html>
