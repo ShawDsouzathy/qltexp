@@ -1,1 +1,153 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exportised</title>
+  <link rel="icon" href="323.png" type="image/png">
+  <!-- Google Font: Inter Tight -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #ffffff;
+      font-family: 'Inter Tight', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+  .logo {
+  width: 30px;
+  opacity: 35%;
+  }
+
+ h1 {
+  font-size: 2rem;
+  font-weight: 200;
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+
+  /* Smooth gradient text effect */
+  background: linear-gradient(
+    90deg,
+    
+    #2f2f2f 100%
+  );rgb(49, 49, 49)
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Animation */
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+    form {
+      display: flex;
+      background: #f4f4f4;
+      border-radius: 30px;
+      padding: 5px 10px;
+      align-items: center;
+    }
+
+    input[type="tel"] {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 12px;
+      font-size: 1rem;
+      color: #9c9c9c;
+    }
+
+    input::placeholder {
+      color: #9c9c9c;
+    }
+
+    button {
+      border: none;
+      background: transparent;
+      color: #9c9c9c;
+      letter-spacing: -1px;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0 12px;
+    }
+
+    #msg {
+      margin-top: 15px;
+      opacity: 50%;
+      font-size: 0.9rem;
+      color: #9c9c9c;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      input[type="tel"] {
+        font-size: 0.9rem;
+      }
+      button {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Your Logo -->
+    <img src="322.png" alt="Logo" class="logo">
+
+    <h1>drop your Ph.No here</h1>
+    
+    <form id="leadForm">
+      <input type="tel" name="phone" placeholder="Ph.No" required>
+      <button type="submit"><i>Send</i></button>
+    </form>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById("leadForm");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbwmuMhHy4eiRHLHq_dAfBMuiKh26trZjoFKdBO6hevfw4PSfHG2yTCXsxb-Lvpuslne/exec", {
+          method: "POST",
+          body: data
+        });
+        msg.textContent = "Number submitted successfully.";
+        form.reset();
+      } catch (err) {
+        msg.textContent = "Failed, try again.";
+      }
+    });
+  </script>
+  
+</body>
+</html>
+
