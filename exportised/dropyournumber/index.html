@@ -29,7 +29,7 @@
 
   .logo {
   width: 30px;
-  opacity: 15%;
+  opacity: 35%;
   }
 
  h1 {
@@ -37,29 +37,8 @@
   font-weight: 200;
   letter-spacing: -1px;
   margin-bottom: 18px;
+  color: black;
 
-  /* Smooth gradient text effect */
-  background: linear-gradient(
-    90deg,
-    
-    #2f2f2f 100%
-  );rgb(49, 49, 49)
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  /* Animation */
-  animation: shine 3s linear infinite;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
 }
 
     form {
@@ -98,7 +77,7 @@
       margin-top: 15px;
       opacity: 50%;
       font-size: 0.9rem;
-      color: #B8B8B8;
+      color: #9c9c9c;
     }
 
     @media (max-width: 600px) {
@@ -119,7 +98,7 @@
     <!-- Your Logo -->
     <img src="322.png" alt="Logo" class="logo">
 
-    <h1>drop your <i>Ph.No</i> here</h1>
+    <h1>drop your Ph.No here</h1>
     
     <form id="leadForm">
       <input type="tel" name="phone" placeholder="Ph.No" required>
